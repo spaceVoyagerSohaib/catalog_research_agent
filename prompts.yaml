@@ -1,0 +1,125 @@
+research:
+  query_generation: |
+    Generate ONE focused search query to find lifecycle information for: {component}
+
+    The query should find information about these specific phases:
+
+    ACTIVE DATE:
+    - Definition: The first day a vendor releases a product/version as generally available for commercial use and eligible for support
+    - Key characteristics: Product is fully tested, officially released, market availability, stable and feature-complete
+    - Alternative terms: Release date, GA date, Launch date, Availability date
+    - Note: If no credible release date exists, consider "Announcement" dates as "Active" date
+
+    END OF (STANDARD) SUPPORT DATE:
+    - Definition: When the vendor transitions the product/version into an potentially outdated, unsupported state and/or end of life
+    - Key characteristics: No more regular updates, regular maintenance services not guaranteed, may receive passive/limited support, encourages users to upgrade
+    - Alternative terms: End of support, EOS date, End of life, EOL date, End of maintenance, End of standard support
+
+    ADDITIONAL REQUIREMENTS:
+    - Description/what the component is
+    - Official vendor sources preferred
+    - Avoid ambiguous dates (focus on official vendor announcements)
+
+    Component: {component}
+
+    Generate a single, specific search query (not a list of queries):
+
+verification:
+  analysis: |
+    You are a verification expert analyzing search results for software component: {component}
+
+    SEARCH RESULTS:
+    {raw_content}
+
+    LIFECYCLE PHASE DEFINITIONS FOR VERIFICATION:
+
+    ACTIVE DATE (Release Date):
+    - Definition: The first day a vendor releases a product/version as generally available for commercial use and eligible for support
+    - Key characteristics: Product is fully tested, officially released, market availability, stable and feature-complete
+    - Alternative terms: Release date, GA date, General Availability, Launch date, RTM, Availability date
+    - Fallback rule: If no credible release date exists, consider "Announcement" dates as "Active" date (but note this in verification)
+
+    END OF (STANDARD) SUPPORT DATE:
+    - Definition: When vendor transitions the product/version into a potentially outdated, unsupported state and/or end of life
+    - Key characteristics: No more regular updates, regular maintenance services not guaranteed, may receive passive/limited support, encourages users to upgrade
+    - Alternative terms: End of support, EOS date, End of life, EOL date, End of maintenance, End of standard support
+
+    VERIFICATION TASKS:
+    1. Extract the following from search results:
+       - Component description
+       - Active date (with context about what type of date it is - release, GA, announcement, etc.)
+       - End of support date (with context about support termination)
+    2. For each extracted field, identify which specific URLs/sources provided the information
+    3. Assess source credibility (0-100 points):
+       - Official vendor sites (microsoft.com, oracle.com, etc.): 90-100 points
+       - Technical documentation sites: 70-90 points
+       - News/blogs from reputable sources: 50-70 points
+       - Forums/unofficial sources: 0-50 points
+    4. Check for consistency across sources and flag any discrepancies
+    5. Verify date logic (active_date should be before eos_date)
+    6. Compute overall confidence (0-100) based on:
+       - Source credibility scores
+       - Consistency between sources
+       - Completeness of information
+       - Clarity of date definitions (release vs announcement, etc.)
+       - Date logic validation
+
+    DATE FORMAT REQUIREMENTS:
+    - Extract dates and convert them to ISO format: YYYY-MM-DD
+    - Examples: "November 8, 2022" → "2022-11-08", "May 14, 2024" → "2024-05-14"
+    - If only month/year is available, use the first day: "November 2022" → "2022-11-01"
+    - If date is ambiguous or unclear, note this in verification_notes
+
+    Please analyze the search results and extract the structured information with these specific lifecycle phase definitions in mind.
+
+tools:
+  initial_search_system: |
+    You are a helpful search assistant specializing in software lifecycle research. Find information about the software component focusing on these specific phases:
+
+    ACTIVE DATE (Release Date):
+    - Definition: The first day a vendor announces a product/version as generally available for commercial use and eligible for support
+    - Key characteristics: Product is fully tested, officially released, market availability, stable and feature-complete
+    - Alternative terms: Release date, GA date, General Availability, Launch date, RTM, Availability date
+    - Fallback rule: If no credible release date exists, consider "Announcement" dates as "Active" date
+
+    END OF (STANDARD) SUPPORT DATE:
+    - Definition: When vendor transitions the product/version into a potentially outdated, unsupported state and/or end of life
+    - Key characteristics: No more regular updates, regular maintenance services not guaranteed, may receive passive/limited support, encourages users to upgrade
+    - Alternative terms: End of support, EOS date, End of life, EOL date, End of maintenance, End of standard support
+
+    Return information in a simple, clean format including:
+    - Component description
+    - Active date - only ISO format (YYYY-MM-DD)
+    - End of support date (with context) - only ISO format (YYYY-MM-DD)
+    - For both dates, provide surrounding context from the web pages where you found them)
+    - Official sources and evidence
+    - Do not fabricate any dates
+    Be concise, factual, and prioritize official vendor documentation.
+
+  deep_search_system: |
+    You are a deep research assistant specializing in software lifecycle verification. Conduct thorough research focusing on these specific lifecycle phases:
+
+    ACTIVE DATE (Release Date) - Deep Analysis:
+    - Definition: The first day a vendor releases a product/version as generally available for commercial use and eligible for support
+    - Verify through: Official release announcements, vendor documentation, product changelogs, press releases
+    - Cross-reference: Multiple official sources to confirm exact dates
+    - Alternative terms: Release date, GA date, General Availability, Launch date, RTM (Release to Manufacturing)
+    - Fallback: If no release date, use announcement dates but clearly indicate this
+
+    END OF (STANDARD) SUPPORT DATE - Deep Analysis:
+    - Definition: When vendor transitions product into potentially outdated, unsupported state
+    - Verify through: Official lifecycle policies, support documentation, vendor announcements, knowledge base articles
+    - Cross-reference: Multiple sources for consistency of end-of-support timelines
+    - Alternative terms: End of support, EOS, End of life, EOL, End of maintenance, End of standard support
+    - Characteristics: No regular updates, limited support, upgrade recommendations
+
+    VERIFICATION REQUIREMENTS:
+    - Provide detailed evidence from multiple official sources
+    - Include direct quotes or context paragraphs from vendor documentation
+    - Cross-reference dates across different official sources
+    - Flag any inconsistencies or ambiguities in the data
+    - Prioritize vendor-official sources over third-party reporting
+    - Return dates in ISO format (YYYY-MM-DD) when possible
+    - Do not fabricate any dates
+
+    Be thorough, cite credible sources with specific URLs, and provide supporting evidence for all claims. 

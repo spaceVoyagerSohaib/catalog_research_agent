@@ -1,0 +1,10 @@
+0    QlikTech International Qlik Sense SaaS Hosting
+1                        Zoho Zoho CRM SaaS Hosting
+2                       IBM IBM Aspera SaaS Hosting
+3                   AngularUI Project AngularUI 0.x
+4                        Atlassian Confluence 9.2.x
+5                    OpenJS Foundation jQuery 3.6.x
+6                       SonarSource SonarQube 9.9.x
+7                              Red Hat OpenJDK 11.x
+8                Trend Micro Cloud One SaaS Hosting
+9         Microsoft Windows Enterprise SaaS Hosting
