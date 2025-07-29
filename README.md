@@ -20,6 +20,9 @@ An automated research agent built with LangGraph and LangChain that discovers so
 - **Graph**: LangGraph workflow orchestration
 - **Config**: Environment and LLM configuration management
 
+<img width="1282" height="1378" alt="image" src="https://github.com/user-attachments/assets/4f232805-ed57-4b0c-94b4-a9a46d1b47a6" />
+
+
 ### Workflow
 
 1. **Initial Research**: Generate search query and perform initial research
