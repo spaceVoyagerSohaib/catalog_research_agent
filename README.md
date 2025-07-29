@@ -196,7 +196,3 @@ Set logging level in `config.py`:
 ```python
 logging.basicConfig(level=logging.INFO)  # Change to INFO, WARNING, or ERROR
 ```
-
-## License
-
-This project is part of AI research initiatives. 
