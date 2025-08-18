@@ -1,10 +1,20 @@
-0    QlikTech International Qlik Sense SaaS Hosting
-1                        Zoho Zoho CRM SaaS Hosting
-2                       IBM IBM Aspera SaaS Hosting
-3                   AngularUI Project AngularUI 0.x
-4                        Atlassian Confluence 9.2.x
-5                    OpenJS Foundation jQuery 3.6.x
-6                       SonarSource SonarQube 9.9.x
-7                              Red Hat OpenJDK 11.x
-8                Trend Micro Cloud One SaaS Hosting
-9         Microsoft Windows Enterprise SaaS Hosting
+0                              Akeneo PIM SaaS Hosting
+1     FastTrack Software Admin By Request SaaS Hosting
+2                                 IBM AIX Standard 7.2
+3                     Microsoft .NET Framework 2.0 SP2
+4                     Microsoft .NET Framework 3.0 SP2
+5        Sparta Systems TrackWise Digital SaaS Hosting
+6                            HashiCorp Terraform 1.7.x
+7                                   VMware vSphere 8.0
+8                                 Google reCAPTCHA 2.x
+9     Microsoft Analysis Services OLE DB Provider 15.0
+10             BeyondTrust Remote Support SaaS Hosting
+11           Varonis Systems DatAdvantage SaaS Hosting
+12                   Azure Text to Speech SaaS Hosting
+13                                        AWS Pinpoint
+14                                      Microsoft Edge
+15           OpenText Intelligent Capture for SAP 21.4
+16                    Trellix Endpoint Security 10.7.x
+17                             Axway API Gateway 7.7.x
+18    Microsoft Analysis Services OLE DB Provider 14.0
+19                       Lenovo Group ThinkCentre M93p
