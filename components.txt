@@ -1,20 +1,20 @@
-0                              Akeneo PIM SaaS Hosting
-1     FastTrack Software Admin By Request SaaS Hosting
-2                                 IBM AIX Standard 7.2
-3                     Microsoft .NET Framework 2.0 SP2
-4                     Microsoft .NET Framework 3.0 SP2
-5        Sparta Systems TrackWise Digital SaaS Hosting
-6                            HashiCorp Terraform 1.7.x
-7                                   VMware vSphere 8.0
-8                                 Google reCAPTCHA 2.x
-9     Microsoft Analysis Services OLE DB Provider 15.0
-10             BeyondTrust Remote Support SaaS Hosting
-11           Varonis Systems DatAdvantage SaaS Hosting
-12                   Azure Text to Speech SaaS Hosting
-13                                        AWS Pinpoint
-14                                      Microsoft Edge
-15           OpenText Intelligent Capture for SAP 21.4
-16                    Trellix Endpoint Security 10.7.x
-17                             Axway API Gateway 7.7.x
-18    Microsoft Analysis Services OLE DB Provider 14.0
-19                       Lenovo Group ThinkCentre M93p
+0       Microsoft SharePoint Online Management Shell 16.0
+1                                 EnterpriseDB PostgreSQL
+2     Microsoft Visual Studio Tools for Applications 2017
+3                                       Azure Bot Service
+4                                Azure Database for MySQL
+5                                          Ansible 2.10.5
+6                                       Azure Data Studio
+7                                  IBM API Connect 10.0.x
+8                                 Axway API Gateway 7.7.x
+9            Microsoft SQL Server Reporting Services 2005
+10                           Azure Data Lake Storage Gen1
+11                                     NGINX nginx 1.18.x
+12                              Azure Data Lake Analytics
+13                                       Apple macOS 12.x
+14                                         IBM z/OS 2.5.x
+15                       Microsoft .NET Framework 3.0 SP2
+16                        Google Data Studio Software 1.0
+17                       Autodesk NavisWorks Freedom 2023
+18                            Informatica Platform 10.5.x
+19                   Microsoft Office Proofing Tools 2016

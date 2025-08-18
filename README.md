@@ -20,9 +20,6 @@ An automated research agent built with LangGraph and LangChain that discovers so
 - **Graph**: LangGraph workflow orchestration
 - **Config**: Environment and LLM configuration management
 
-<img width="1282" height="1378" alt="image" src="https://github.com/user-attachments/assets/4f232805-ed57-4b0c-94b4-a9a46d1b47a6" />
-
-
 ### Workflow
 
 1. **Initial Research**: Generate search query and perform initial research
@@ -196,3 +193,31 @@ Set logging level in `config.py`:
 ```python
 logging.basicConfig(level=logging.INFO)  # Change to INFO, WARNING, or ERROR
 ```
+
+## Evaluation
+
+The `evaluations.py` script evaluates batch results against manually labeled ground truth data in `evaluation_set/evaluation_set.csv`.
+
+### How It Works
+
+The evaluator matches output components with CSV labels by name, then compares extracted dates against target dates for each lifecycle phase (ACTIVE_DATE/END_OF_LIFE_DATE). It provides exact match rates, wrong-phase detection, and date delta distributions.
+
+### Metrics
+
+- **Exact matches**: Target date equals predicted date or both are NOT_FOUND/null
+- **Wrong-phase matches**: Date found in wrong field (e.g., active date in eos_date field)  
+- **Delta buckets**: Distribution of day differences for approximate matches
+
+### Usage
+
+```bash
+# Evaluate a batch results file
+poetry run python evaluations.py catalog_research_results_20250818_143759.json
+
+# Or with absolute path
+python3 evaluations.py /path/to/results.json
+```
+
+## License
+
+This project is part of AI research initiatives. 

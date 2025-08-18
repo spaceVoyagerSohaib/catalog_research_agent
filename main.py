@@ -88,13 +88,13 @@ class CatalogResearchRunner:
             "results": results
         }
     
-    def export_json(self, batch_results: Dict[str, Any], filename: str = None) -> str:
+    def export_json(self, batch_results: Dict[str, Any], fpath: str = './outputs', filename: str = None) -> str:
         if not filename:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"catalog_research_results_{timestamp}.json"
         
-        with open(filename, 'w') as f:
-            json.dump(batch_results, f, indent=2)
+        with open(fpath + '/' + filename, 'w') as f:
+            json.dump(batch_results, f, indent=4)
         
         return filename
 
@@ -119,7 +119,7 @@ async def main():
     components_file = sys.argv[1]
     max_concurrent = int(sys.argv[2]) if len(sys.argv) > 2 else 3
     
-    print("🔍 Catalog Research Agent - Software Lifecycle Research")
+    print("Catalog Research Agent - Software Lifecycle Research")
     print("=" * 60)
     
     components = load_components(components_file)
