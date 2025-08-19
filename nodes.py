@@ -1,6 +1,6 @@
 import logging
 from langchain_core.messages import HumanMessage
-from models import ResearchState, SearchAttempt, VerificationResult
+from models import ResearchState, SearchAttempt, ActiveVerificationResult, EosVerificationResult
 from config import Config
 from prompt_loader import prompt_loader
 from tools import initial_search
@@ -11,10 +11,12 @@ logger = logging.getLogger(__name__)
 class Nodes:
     def __init__(self, llm):
         self.llm = llm
-        self.verification_llm = llm.with_structured_output(VerificationResult)
+        self.llm_json = llm.bind(response_format={"type": "json_object"})
+        self.active_verification_llm = self.llm_json.with_structured_output(ActiveVerificationResult)
+        self.eos_verification_llm = self.llm_json.with_structured_output(EosVerificationResult)
     
-    def _check_duplicate_search(self, search_history: list, component: str) -> bool:
-        return any(attempt.get('query') == component for attempt in search_history)
+    def _check_duplicate_search(self, search_history: list, query: str) -> bool:
+        return any(attempt.get('query') == query for attempt in search_history)
     
     def _generate_search_query(self, component: str) -> str:
         query_prompt = prompt_loader.get_prompt("research", "query_generation", component=component)
@@ -44,13 +46,13 @@ class Nodes:
         try:
             search_history = state.get('search_history', [])
             component = state.get('component')
-            
-            if self._check_duplicate_search(search_history, component):
-                logger.warning("Duplicate search detected")
-                return {'termination_reason': 'duplicate_search'}
-            
+
             query = self._generate_search_query(component)
             logger.debug(f"LLM generated query: {query}")
+
+            if self._check_duplicate_search(search_history, query):
+                logger.warning("Duplicate search detected")
+                return {'termination_reason': 'duplicate_search'}
             
             tool_result = self._execute_search(query)
             
@@ -81,16 +83,16 @@ class Nodes:
         search_results = last_search.get('results', {})
         return search_results.get('raw_content', '')
     
-    def _categorize_sources(self, analysis, state: ResearchState) -> tuple:
+    def _categorize_sources(self, active_sources, eos_sources, state: ResearchState) -> tuple:
         verified_sources = state.get('verified_sources', [])
         failed_sources = state.get('failed_sources', [])
         
-        all_sources = (
-            analysis.description_sources + 
-            analysis.active_date_sources + 
-            analysis.eos_date_sources
-        )
-        
+        all_sources = []
+        if active_sources:
+            all_sources.extend(active_sources)
+        if eos_sources:
+            all_sources.extend(eos_sources)
+
         for source in all_sources:
             if source.credibility_score >= 70:
                 verified_sources.append(source.url)
@@ -106,28 +108,54 @@ class Nodes:
         try:
             search_history = state.get('search_history', [])
             raw_content = self._extract_search_content(search_history)
-            
-            analysis_prompt = prompt_loader.get_prompt(
-                "verification", 
-                "analysis", 
-                component=state.get('component'),
+            component = state.get('component')
+
+            active_prompt = prompt_loader.get_prompt(
+                "verification_active",
+                "analysis",
+                component=component,
                 raw_content=raw_content
             )
+            eos_prompt = prompt_loader.get_prompt(
+                "verification_eos",
+                "analysis",
+                component=component,
+                raw_content=raw_content
+            )
+
+            logger.debug(f"Active verification prompt: {active_prompt}")
+            active = self.active_verification_llm.invoke([HumanMessage(content=active_prompt)])
+
+            logger.debug(f"EOS verification prompt: {eos_prompt}")
+            eos = self.eos_verification_llm.invoke([HumanMessage(content=eos_prompt)])
+
+            combined_result = {
+                'active_date': active.active_date,
+                'active_date_sources': [s.dict() for s in (active.active_date_sources or [])],
+                'eos_date': eos.eos_date,
+                'eos_date_sources': [s.dict() for s in (eos.eos_date_sources or [])],
+                'confidence_active': active.confidence_active,
+                'confidence_eos': eos.confidence_eos,
+                'status_active': active.status_active,
+                'status_eos': eos.status_eos,
+                'notes_active': active.notes_active,
+                'notes_eos': eos.notes_eos,
+            }
+
+            # Simple confidence score (use minimum like original overall_confidence concept)
+            confidence_score = min(active.confidence_active, eos.confidence_eos)
             
-            logger.debug(f"Verification LLM prompt: {analysis_prompt}")
-            
-            analysis = self.verification_llm.invoke([HumanMessage(content=analysis_prompt)])
-            logger.debug(f"Verification LLM output: {analysis}")
-            logger.debug(f"Verification confidence: {analysis.overall_confidence}")
-            
-            verified_sources, failed_sources = self._categorize_sources(analysis, state)
+            verified_sources, failed_sources = self._categorize_sources(
+                active.active_date_sources or [], 
+                eos.eos_date_sources or [], 
+                state
+            )
             
             return {
-                'current_results': analysis.dict(exclude={'overall_confidence', 'verification_notes'}),
-                'confidence_score': analysis.overall_confidence,
+                'current_results': combined_result,
+                'confidence_score': confidence_score,
                 'verified_sources': verified_sources,
                 'failed_sources': failed_sources,
-                'verification_notes': analysis.verification_notes
             }
             
         except Exception as e:
@@ -138,8 +166,15 @@ class Nodes:
                 'iteration_count': state.get('iteration_count', 0) + 1
             }
     
-    def _generate_followup_query(self, component: str) -> str:
-        return f"{component} lifecycle support dates official documentation"
+    def _generate_followup_query(self, state: ResearchState) -> str:
+        component = state.get('component', '')
+        current = state.get('current_results') or {}
+        
+        if (current.get('status_active') == 'verified' and 
+            current.get('status_eos') != 'verified'):
+            return f'{component} "end of support" OR "EOL" OR "end of life"'
+    
+        return f"{component} lifecycle support dates"
     
     def _execute_deep_search(self, query: str):
         return deep_search.invoke({'query': query})
@@ -149,8 +184,7 @@ class Nodes:
         logger.info(f"Starting follow-up research for component: {state.get('component', 'Unknown')}")
         
         try:
-            component = state.get('component')
-            followup_query = self._generate_followup_query(component)
+            followup_query = self._generate_followup_query(state)
             logger.debug(f"Follow-up query: {followup_query}")
  
             tool_result = self._execute_deep_search(followup_query)
@@ -177,11 +211,25 @@ class Nodes:
  
     def decision_node(self, state: ResearchState) -> str:
         logger.debug(f"Decision node input state: {state}")
-        confidence = state.get('confidence_score', 0.0)
         iterations = state.get('iteration_count', 0)
-        logger.info(f"Decision: confidence={confidence}, iterations={iterations}")
-        
-        if confidence >= 90.0 or iterations >= 2:
+        current_results = state.get('current_results') or {}
+        conf_active = current_results.get('confidence_active', 0.0) or 0.0
+        conf_eos = current_results.get('confidence_eos', None)
+        status_active = current_results.get('status_active', 'not_found')
+        status_eos = current_results.get('status_eos', 'not_found')
+
+        active_threshold = 85.0
+        eos_threshold = 85.0
+
+        active_ok = (status_active == "verified" and conf_active >= active_threshold)
+        eos_ok = (
+            (status_eos in {"verified", "derived"} and (conf_eos or 0.0) >= eos_threshold)
+            or status_eos == "not_applicable"
+        )
+
+        logger.info(f"Decision: iterations={iterations}, active_ok={active_ok}, eos_ok={eos_ok}")
+
+        if (active_ok and eos_ok) or iterations >= 2:
             return "output_generation"
         else:
             return "followup_research"
@@ -189,34 +237,40 @@ class Nodes:
     def _create_error_output(self, state: ResearchState) -> dict:
         return {
             'component': state.get('component'),
-            'description': 'Information not available',
             'active_date': 'Unknown',
             'eos_date': 'Unknown',
             'confidence_score': 0.0,
             'sources': {
-                'description_sources': [],
                 'active_date_sources': [],
                 'eos_date_sources': []
             },
             'verification_notes': state.get('verification_notes', 'No verification performed'),
             'iteration_count': state.get('iteration_count', 0),
+            'confidence_active': 0.0,
+            'confidence_eos': 0.0,
+            'status_active': 'not_found',
+            'status_eos': 'not_found',
             'error': 'Unable to extract reliable information from search results'
         }
     
     def _create_successful_output(self, state: ResearchState, current_results: dict) -> dict:
         return {
             'component': state.get('component'),
-            'description': current_results.get('description'),
             'active_date': current_results.get('active_date'),
             'eos_date': current_results.get('eos_date'),
             'confidence_score': state.get('confidence_score', 0.0),
             'sources': {
-                'description_sources': current_results.get('description_sources', []),
                 'active_date_sources': current_results.get('active_date_sources', []),
                 'eos_date_sources': current_results.get('eos_date_sources', [])
             },
-            'verification_notes': state.get('verification_notes', ''),
-            'iteration_count': state.get('iteration_count', 0)
+            'notes_active': current_results.get('notes_active', ''),
+            'notes_eos': current_results.get('notes_eos', ''),
+            'iteration_count': state.get('iteration_count', 0),
+            # Per-field additions
+            'confidence_active': current_results.get('confidence_active'),
+            'confidence_eos': current_results.get('confidence_eos'),
+            'status_active': current_results.get('status_active'),
+            'status_eos': current_results.get('status_eos'),
         }
     
     def output_generation_node(self, state: ResearchState) -> ResearchState:
@@ -237,4 +291,4 @@ class Nodes:
             
         except Exception as e:
             logger.error(f"Output generation failed: {str(e)}")
-            return {'termination_reason': f'error: {str(e)}'} 
+            return {'termination_reason': f'error: {str(e)}'}

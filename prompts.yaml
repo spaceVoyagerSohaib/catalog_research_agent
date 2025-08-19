@@ -16,7 +16,6 @@ research:
     - Alternative terms: End of support, EOS date, End of life, EOL date, End of maintenance, End of standard support
 
     ADDITIONAL REQUIREMENTS:
-    - Description/what the component is
     - Official vendor sources preferred
     - Avoid ambiguous dates (focus on official vendor announcements)
 
@@ -46,7 +45,6 @@ verification:
 
     VERIFICATION TASKS:
     1. Extract the following from search results:
-       - Component description
        - Active date (with context about what type of date it is - release, GA, announcement, etc.)
        - End of support date (with context about support termination)
     2. For each extracted field, identify which specific URLs/sources provided the information
@@ -83,12 +81,11 @@ tools:
     - Fallback rule: If no credible release date exists, consider "Announcement" dates as "Active" date
 
     END OF (STANDARD) SUPPORT DATE:
-    - Definition: When vendor transitions the product/version into a potentially outdated, unsupported state and/or end of life
+    - Definition: When vendor transitions the product/version into a potentially outdated, unsupported state
     - Key characteristics: No more regular updates, regular maintenance services not guaranteed, may receive passive/limited support, encourages users to upgrade
     - Alternative terms: End of support, EOS date, End of life, EOL date, End of maintenance, End of standard support
 
     Return information in a simple, clean format including:
-    - Component description
     - Active date - only ISO format (YYYY-MM-DD)
     - End of support date (with context) - only ISO format (YYYY-MM-DD)
     - For both dates, provide surrounding context from the web pages where you found them)
@@ -123,3 +120,93 @@ tools:
     - Do not fabricate any dates
 
     Be thorough, cite credible sources with specific URLs, and provide supporting evidence for all claims. 
+
+verification_active:
+  analysis: |
+    You are validating the ACTIVE/GA date for software component: {component}
+
+    SEARCH RESULTS:
+    {raw_content}
+
+    ACTIVE DATE DEFINITION:
+    - The first day a vendor releases a product/version as generally available for commercial use and eligible for support
+    - Key characteristics: Product is fully tested, officially released, market availability, stable and feature-complete
+    - Alternative terms: Release date, GA date, General Availability, Launch date, RTM, Availability date
+    - Fallback rule: If no credible release date exists, consider "Announcement" dates as "Active" date (but note this in verification)
+
+    VERIFICATION TASKS:
+    1. Extract ACTIVE date information from search results with context about what type of date it is
+    2. Identify which specific URLs/sources provided the Active date information
+    3. Assess source credibility (0-100 points):
+       - Official vendor sites (microsoft.com, oracle.com, etc.): 90-100 points
+       - Technical documentation sites: 70-90 points
+       - News/blogs from reputable sources: 50-70 points
+       - Forums/unofficial sources: 0-50 points
+    4. Check for consistency across sources and flag any discrepancies in Active dates
+    5. Verify date clarity (release vs announcement, etc.)
+    6. Compute confidence (0-100) based on:
+       - Source credibility scores
+       - Consistency between sources
+       - Completeness of information
+       - Clarity of date definitions (release vs announcement, etc.)
+
+    STATUS DEFINITIONS:
+    - verified: explicit GA/release date from credible source(s)
+    - ambiguous: conflicting or unclear dates
+    - not_found: no suitable date found
+    - not_applicable: use only if product has no sensible active concept (rare)
+
+    DATE FORMAT:
+    - Provide active_date in ISO YYYY-MM-DD
+    - If only month/year available, use the first of the month (e.g., 2022-11-01)
+    - Do not fabricate dates
+
+    Critically analyze the search results and extract structured information with rigorous verification.
+
+verification_eos:
+  analysis: |
+    You are validating the END OF STANDARD SUPPORT (EOS) for software component: {component}
+
+    SEARCH RESULTS:
+    {raw_content}
+
+    EOS DATE DEFINITION:
+    - When vendor transitions the product/version into a potentially outdated, unsupported state and/or end of life
+    - Key characteristics: No more regular updates, regular maintenance services not guaranteed, may receive passive/limited support, encourages users to upgrade
+    - Alternative terms: End of support, EOS date, End of life, EOL date, End of maintenance, End of standard support
+
+    VERIFICATION TASKS:
+    1. Extract EOS date information from search results with context about support termination
+    2. Identify which specific URLs/sources provided the EOS date information
+    3. Assess source credibility (0-100 points):
+       - Official vendor sites (microsoft.com, oracle.com, etc.): 90-100 points
+       - Technical documentation sites: 70-90 points
+       - News/blogs from reputable sources: 50-70 points
+       - Forums/unofficial sources: 0-50 points
+    4. Check for consistency across sources and flag any discrepancies in EOS dates
+    5. Verify EOS derivation logic if using lifecycle policies
+    6. Compute confidence (0-100) based on:
+       - Source credibility scores
+       - Consistency between sources
+       - Completeness of information
+       - Clarity of EOS definitions (explicit vs derived)
+
+    EOS DETERMINATION:
+    - explicit date published by vendor
+    - derived date from vendor lifecycle policy (e.g., "standard support = 4 years from GA")
+    - not_applicable for SaaS offerings without fixed EOS
+    - not_found if neither explicit nor policy derivation is possible
+
+    STATUS DEFINITIONS:
+    - verified: explicit EOS date from credible source(s)
+    - derived: EOS derived from explicit policy rule and active date
+    - ambiguous: conflicting or unclear signals
+    - not_found: no EOS or policy derivation possible
+    - not_applicable: SaaS/continuous support without fixed EOS
+
+    DATE FORMAT:
+    - Provide eos_date in ISO YYYY-MM-DD when explicit or derived
+    - If only month/year available, use the first of the month (e.g., 2024-05-01)
+    - Do not fabricate dates
+
+    Critically analyze the search results and extract structured information with rigorous verification.

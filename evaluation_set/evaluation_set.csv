@@ -1,0 +1,171 @@
+itc_id,full_name,type,target_date,status,rejection_category,comment
+2d128205-29f9-431d-850a-e972a72bd9dc,Inductive Automation Ignition 8.0.x,END_OF_LIFE_DATE,2022-04-11,ACCEPTED,,"The link shows the EOL, but the suggested date is not correct."
+811d79d6-f997-48bc-84e0-002a7b2c57df,IBM QRadar SaaS Hosting,END_OF_LIFE_DATE,2025-04-14,ACCEPTED,,
+c48d5df1-3bbd-466b-945e-6b46c4b8e491,Brightcove Video Cloud SaaS Hosting,ACTIVE_DATE,2006-01-01,ACCEPTED,,
+a6103652-89fd-4751-9053-d82abce4cfa9,Apache Software Foundation Airflow 2.0.x,END_OF_LIFE_DATE,2025-10-22,ACCEPTED,,"The date is not correct, but the link was helpful and considered here. The suggested date would fit better a ""phase-out"" rather than EOL."
+436f50dd-a486-409f-90b8-af82a313f11b,Microsoft OpenJDK 17.x,END_OF_LIFE_DATE,2027-09-30,ACCEPTED,,
+b8fb6794-ae98-4027-a684-7ab64009cac5,Azure Relay,ACTIVE_DATE,2010-01-01,ACCEPTED,,"The date is correct, but we were able to found an official link."
+5e62e0e4-3ed4-4bfd-b84f-2ed63b383c42,Azure Text to Speech SaaS Hosting,ACTIVE_DATE,2018-05-07,ACCEPTED,,The date could be found on other link. The suggested link has no dates in it.
+00357122-36fd-4793-908e-b972a1cc2590,Esker on Demand SaaS Hosting,ACTIVE_DATE,2005-01-01,ACCEPTED,,
+a2675d4e-fcac-4565-b0ec-01d77c2fc597,Microsoft SQL Server Reporting Services 2005,END_OF_LIFE_DATE,2016-04-12,ACCEPTED,,
+153e4c65-a52a-4d1c-baf8-b8257934096d,SAP NetWeaver Business Client 7.70,END_OF_LIFE_DATE,2024-04-09,ACCEPTED,,The date is correct. The URL is unofficial and was not considered.
+ff9cf394-056f-4082-a2aa-e65d0a19845a,Siemens TIA Portal 17.x,END_OF_LIFE_DATE,2025-01-31,ACCEPTED,,
+ff9cf394-056f-4082-a2aa-e65d0a19845a,Siemens TIA Portal 17.x,ACTIVE_DATE,2021-05-28,ACCEPTED,,
+cae038d0-f9e7-47a6-9426-a56764c4954d,Oracle VirtualBox 7.0.x,END_OF_LIFE_DATE,2025-03-31,ACCEPTED,,"The date is correct, but the source is unreliable. We found the official link to the EOL."
+0b1e9d83-6a6d-4ede-bae3-43f71430ff57,Microsoft Dynamics 365 Customer Voice SaaS Hosting,ACTIVE_DATE,2020-07-21,ACCEPTED,,"The date almost correct (per a few days only), but I have found an official link."
+97e480f0-e0a8-4728-ba21-287f96ffa632,Microsoft Office Proofing Tools 2013,END_OF_LIFE_DATE,2023-04-11,ACCEPTED,,"The URL is correct, but the suggested date is the extended support, not the standard EOL."
+43cc6d67-2e65-4b1e-bb60-70b3beea067d,Google Data Studio Software 1.0,ACTIVE_DATE,2016-05-25,ACCEPTED,,"The date is correct, but the date is not available on the suggested link. It could be found on another official URL."
+98882798-5369-495f-8b37-6e258dc92884,Informatica Platform 10.5.x,END_OF_LIFE_DATE,2026-03-31,ACCEPTED,,
+12e3c7ff-c38b-45b3-bd48-b1e1130a6531,Microsoft WCF Data Services 5.0,ACTIVE_DATE,2012-04-09,ACCEPTED,,
+9dcac49d-8f60-44e6-8e2d-e595805f5e76,NetApp FAS 8300,ACTIVE_DATE,2019-10-29,ACCEPTED,,"The date is correct, but the link is from a third party source. We were able to find an official source for this."
+a1815743-6fb1-4865-ae7a-08e9d5331381,Veeva Systems CRM SaaS Hosting,ACTIVE_DATE,2007-01-01,ACCEPTED,,
+a4149461-cc76-416d-9b7e-e2494692859d,Mozilla Foundation Firefox 121.x,END_OF_LIFE_DATE,2024-01-23,ACCEPTED,,"Date is correct, but the link is unreliable. We found an official link for it."
+5e99d852-3752-4fc2-9928-791d9d48d102,Cisco Systems Umbrella Roaming Client SaaS Hosting,END_OF_LIFE_DATE,2025-04-02,ACCEPTED,,
+83c95ce1-bc3c-432e-8d0c-d5214761dae8,Microsoft Windows Presentation Foundation 4.0,END_OF_LIFE_DATE,2016-01-12,ACCEPTED,,"Date is correct, but the source is not reliable and hence updated it."
+83c95ce1-bc3c-432e-8d0c-d5214761dae8,Microsoft Windows Presentation Foundation 4.0,ACTIVE_DATE,2010-04-12,ACCEPTED,,
+95e7c5a4-949f-4246-adba-9f637f6394e9,Autodesk Revit 2024.x,END_OF_LIFE_DATE,2027-03-29,ACCEPTED,,"The date is correct, but the source link is from a third party. We found the official announcement."
+ced142bf-b790-43f8-8ae5-b2f5c12c92a7,Microsoft SharePoint Online Management Shell 16.0,ACTIVE_DATE,2017-02-01,ACCEPTED,,
+5de2eb2f-575e-49bf-93c4-43263d9e8dd2,SAP OData Provisioning Neo SaaS Hosting,END_OF_LIFE_DATE,2028-12-31,ACCEPTED,,"The date is correct, but I have found an official source link."
+50793f11-356f-4b00-a84e-b4b3d188b937,Varonis Systems DatAdvantage SaaS Hosting,ACTIVE_DATE,2021-05-26,ACCEPTED,,"Correct announcement link, but the date is not available/not right."
+2dea0c1f-86fd-44ff-b507-2c99781215e5,Azure Active Directory B2B SaaS Hosting,END_OF_LIFE_DATE,2030-05-31,ACCEPTED,,
+6ca4bd64-8011-4161-bc41-3dda8b0c2dcd,HubSpot Sales SaaS Hosting,ACTIVE_DATE,2010-06-09,ACCEPTED,,"The link is useful, but the date is incorrect on the year."
+8c149d8d-58bc-438e-a1b8-d95b42466bf8,IBM z/OS 2.5.x,END_OF_LIFE_DATE,2026-09-30,ACCEPTED,,
+d9e6080e-65c0-4a63-b6ab-aca82f248df9,Beckhoff Automation TwinCAT 3.1,ACTIVE_DATE,2013-06-14,ACCEPTED,,
+c0959bc9-2826-4f02-952d-b675e24f79cf,Airship Group SaaS Hosting,ACTIVE_DATE,2022-04-07,ACCEPTED,,
+287237bb-87e4-4c49-a9db-e376c1e00723,AWS Pinpoint,END_OF_LIFE_DATE,2026-10-30,ACCEPTED,,
+36883b97-b4f4-4a0e-b52e-23494d6aba1e,McAfee ePolicy Orchestrator 5.10.x,END_OF_LIFE_DATE,2025-04-07,ACCEPTED,,
+ddd2f146-c1ac-4c0e-8d70-92d1714456fc,OpenJS Foundation Express.js,ACTIVE_DATE,2010-11-16,ACCEPTED,,
+38efb96d-e904-4032-bdcc-ca3f5fd65429,Cisco Systems UCS B-Series Blade Server B200 M6,END_OF_LIFE_DATE,2030-12-31,ACCEPTED,,
+876221aa-d161-43e7-b6f2-e69b1333cd72,Citrix Systems Virtual Apps and Desktops 7 2203,END_OF_LIFE_DATE,2027-03-23,ACCEPTED,,
+ea579bf5-d867-4301-bd4d-f764dffd9c6e,HashiCorp Terraform 1.7.x,END_OF_LIFE_DATE,2026-01-31,ACCEPTED,,
+9ce2aa10-c460-4f8a-875c-5ffb8829eed0,Akeneo PIM SaaS Hosting,ACTIVE_DATE,2017-09-01,ACCEPTED,,
+e0c7fa32-b6da-42c3-92b7-dab55439d23a,Kronos Workforce Central Suite SaaS Hosting,END_OF_LIFE_DATE,2025-12-31,ACCEPTED,,
+1d4567f7-71e7-404e-af7b-4058c5aa1206,Azure Data Lake Storage Gen1,END_OF_LIFE_DATE,2024-02-29,ACCEPTED,,
+1d4567f7-71e7-404e-af7b-4058c5aa1206,Azure Data Lake Storage Gen1,ACTIVE_DATE,2016-01-26,ACCEPTED,,
+d07193c8-bbd6-4995-90bf-d01695fe9e9e,Elasticsearch,ACTIVE_DATE,2010-02-08,ACCEPTED,,
+aad60553-043d-4d86-abe5-6ab383f6123c,Hewlett Packard Enterprise ProLiant Server DL360p G8,END_OF_LIFE_DATE,2021-06-13,ACCEPTED,,
+cb5399e2-ef71-4905-b34d-2e93d8989019,FastTrack Software Admin By Request SaaS Hosting,ACTIVE_DATE,2020-05-20,ACCEPTED,,
+9140835e-fba7-41ef-96e8-92e9534a4a49,Microsoft Visual Basic for Applications 6.0,END_OF_LIFE_DATE,2008-04-08,ACCEPTED,,
+9140835e-fba7-41ef-96e8-92e9534a4a49,Microsoft Visual Basic for Applications 6.0,ACTIVE_DATE,1999-04-28,ACCEPTED,,
+ae0ec433-a629-4b2e-99b1-4c2b9301642c,Cisco Systems Unified Communications Manager 14.0,END_OF_LIFE_DATE,2027-04-30,ACCEPTED,,
+2b56b17a-5cd8-40b1-b35f-6b156af1dca0,Cisco Systems Umbrella SaaS Hosting,ACTIVE_DATE,2017-02-09,ACCEPTED,,
+d81f6f35-cfca-4e25-ac53-5784545b482a,Microsoft .NET Framework 2.0 SP2,END_OF_LIFE_DATE,2011-07-12,ACCEPTED,,
+64e79ddd-74e7-4970-bd57-c2a9885fa487,IBM HTTP Server 8.5.x,END_OF_LIFE_DATE,2025-09-30,ACCEPTED,,
+79c3b3ac-a4eb-4ef5-ab3a-eff113750191,Microsoft Visual Studio Tools for Applications 2017,END_OF_LIFE_DATE,2027-04-13,ACCEPTED,,
+79c3b3ac-a4eb-4ef5-ab3a-eff113750191,Microsoft Visual Studio Tools for Applications 2017,ACTIVE_DATE,2017-03-07,ACCEPTED,,
+eb97f984-936a-48fc-9146-8b0a79e8bad2,Microsoft OpenJDK 11.x,END_OF_LIFE_DATE,2027-09-30,ACCEPTED,,
+0f4a00f1-63c2-47a9-8542-55afb350a145,Trimble SketchUp SaaS Hosting,ACTIVE_DATE,2000-08-01,ACCEPTED,,
+6ec95459-7620-474e-92e0-962445001e53,AWS Lex 1,END_OF_LIFE_DATE,2025-09-15,ACCEPTED,,
+3f02d132-9947-474e-a815-fd41de2f29e8,BeyondTrust Remote Support SaaS Hosting,ACTIVE_DATE,2017-01-01,ACCEPTED,,
+94b83a1e-1397-4f13-a447-036439557cc4,Meta React,ACTIVE_DATE,2013-05-29,ACCEPTED,,"The date is correct, but I found the official release date from the provider instead of wikipedia."
+4b278bb9-ed95-4b69-9b66-066a40a48c2d,AWS Lake Formation,END_OF_LIFE_DATE,2024-12-31,ACCEPTED,,
+9f6f8e03-bbb2-45ea-9428-4bd1e9d45a51,EnterpriseDB PostgreSQL,ACTIVE_DATE,2005-01-01,ACCEPTED,,
+9fef168e-48b5-4e30-a6ea-82e09073018e,Trellix Endpoint Security 10.7.x,END_OF_LIFE_DATE,2025-07-16,ACCEPTED,,"Month and year are correct, but the exact day is not."
+b7a3a647-c1cc-4c16-a43d-84a824f5b5f9,Anthropic Claude SaaS Hosting,ACTIVE_DATE,2023-03-14,ACCEPTED,,
+53c9f79a-164b-40dc-aada-631c94a07ab1,Palo Alto Networks GlobalProtect SaaS Hosting,ACTIVE_DATE,2017-06-13,ACCEPTED,,
+384be773-994c-442a-ae34-91aa2c3259f4,Azure Data Lake Analytics,END_OF_LIFE_DATE,2024-02-29,ACCEPTED,,"The date is right, but the URL not."
+dc88bd36-a967-4955-92e6-54fbc6ca5cac,Proofpoint Security Awareness and Training SaaS Hosting,ACTIVE_DATE,2018-06-30,ACCEPTED,,
+aded24a6-56fa-4fd3-ae21-2b58b7ab22f0,Automation Anywhere 360 SaaS Hosting,ACTIVE_DATE,2021-03-11,ACCEPTED,,
+35df6497-fa90-4657-baad-3153fca86b45,Dell PowerEdge MX760c,ACTIVE_DATE,2023-01-17,ACCEPTED,,
+32997990-b07b-48c7-9455-130743598651,Figma FigJam SaaS Hosting,ACTIVE_DATE,2021-04-21,ACCEPTED,,
+3a7d67bc-37a4-46b1-855f-339ac38c5e3d,AWS Amplify,ACTIVE_DATE,2018-11-26,ACCEPTED,,
+95a843cd-cdfc-40b0-b643-56aa26d07e7a,AWS Inspector,END_OF_LIFE_DATE,2026-05-20,ACCEPTED,,
+1766c769-91f4-4cbe-965d-cf344c733f1a,Crowdstrike Falcon Endpoint Protection Enterprise SaaS Hosting,ACTIVE_DATE,2018-04-16,ACCEPTED,,
+e2f07323-2be3-4e91-8232-e92f3dc77b27,Hewlett Packard Enterprise ProLiant Server DL360 G10,END_OF_LIFE_DATE,2028-01-31,ACCEPTED,,
+fe4bcc90-a9d7-4e9a-bad5-eb73c3a89e52,ServiceNow Washington DC,END_OF_LIFE_DATE,2025-03-01,ACCEPTED,,
+df5d2745-b198-4f05-b6ac-76c0161a9e5d,BrowserStack SaaS Hosting,ACTIVE_DATE,2011-01-01,ACCEPTED,,
+84f69c09-423f-4693-9ef4-c090a0e8bfd9,Azure Disk Storage,END_OF_LIFE_DATE,2025-09-30,ACCEPTED,,
+7b1bdf74-c5b8-4b84-a080-ca3836d846d7,Azure Active Directory 2.x,END_OF_LIFE_DATE,2025-04-30,ACCEPTED,,
+9658a4fb-7974-42c8-af56-5ab178789cc0,SailPoint Technologies identity and access management SaaS Hosting,ACTIVE_DATE,2023-10-10,ACCEPTED,,
+3c95bfc7-f63e-4f6a-9f19-b6e4d5040d7b,Notion Labs SaaS Hosting,ACTIVE_DATE,2016-03-01,ACCEPTED,,
+80646579-9444-4edc-9c46-56dcd3c9c2d2,Apache Software Foundation Tomcat 10.1.x,END_OF_LIFE_DATE,2030-03-31,ACCEPTED,,
+62527707-bbd8-4ebc-a4d1-036a3a96e126,Azure Database for MySQL,END_OF_LIFE_DATE,2024-09-16,ACCEPTED,,
+f1888ae4-6d63-48c9-8e2f-2c045946610a,Microsoft ADFS 4.0,ACTIVE_DATE,2016-10-12,ACCEPTED,,
+0e1e56f0-2f02-475d-a5d7-98876191ed17,IBM AIX Standard 7.2,END_OF_LIFE_DATE,2023-04-30,ACCEPTED,,
+8617e992-1a79-49fe-b916-0aa473b3bc34,Azure Data Studio,END_OF_LIFE_DATE,2026-02-28,ACCEPTED,,
+f11caaef-44b7-46ad-a2b7-556fb5acfca3,Atlassian Opsgenie SaaS Hosting,END_OF_LIFE_DATE,2027-04-05,ACCEPTED,,
+ec57ed4d-7df5-4136-91fa-1f4f1f411afb,VMware vSphere 8.0,END_OF_LIFE_DATE,2027-10-11,ACCEPTED,,
+0fb11038-655f-41d4-8e5c-91009d0611ca,GE Digital Proficy Plant Applications 8.2,END_OF_LIFE_DATE,2025-06-01,ACCEPTED,,
+985988d0-6af6-485b-9e79-46843325d050,AWS OpenSearch Service SaaS Hosting,END_OF_LIFE_DATE,2025-11-07,ACCEPTED,,
+1e46465b-ddc5-460e-b06d-694a0c578a1c,Sparta Systems TrackWise Digital SaaS Hosting,ACTIVE_DATE,2018-11-05,ACCEPTED,,
+209ff1fe-a620-4c2f-bbf5-cb344f6f9024,SQLite Development Team 1.0.x,END_OF_LIFE_DATE,2001-09-28,ACCEPTED,,
+b9ea910e-0ba2-420d-a399-167e73970f69,Microsoft Visual Studio SaaS Hosting,ACTIVE_DATE,2013-11-13,ACCEPTED,,
+9bcf7432-1992-47c2-9d95-bebde887a10e,Hewlett Packard Enterprise ProLiant Server DL360 Gen10,END_OF_LIFE_DATE,2028-01-31,ACCEPTED,,
+27ff8531-1ae2-415d-8d79-bb064db9a9ba,Azure Database for PostgreSQL,END_OF_LIFE_DATE,2025-03-28,ACCEPTED,,
+c5efb17e-54d8-4123-819b-cd3445302d8c,Azure Storage Account,END_OF_LIFE_DATE,2024-08-31,ACCEPTED,,
+c29485f1-a789-45a2-b233-24fe4443a014,Azure Active Directory B2C,END_OF_LIFE_DATE,2030-05-31,ACCEPTED,,
+e1804515-51f0-44f3-92ed-b07b83031048,Hewlett Packard Enterprise Server Automation 7.5,ACTIVE_DATE,2008-09-01,ACCEPTED,,
+7197ba66-fe54-4821-a8d1-d5259c3bd26b,Infor EAM 10.1,ACTIVE_DATE,2012-07-20,ACCEPTED,,
+43e8c61f-34b3-41db-a8e9-bc808758e963,Okta Identity Cloud SaaS Hosting,END_OF_LIFE_DATE,2027-12-31,ACCEPTED,,
+bc16eb20-b673-40b3-b08a-1a06cded6a11,SAP HANA In-Memory Database 2.0,END_OF_LIFE_DATE,2025-12-31,ACCEPTED,,
+3e07a0fd-e8a3-4296-9835-fc0fc86bab19,Microsoft Edge,END_OF_LIFE_DATE,2021-03-09,ACCEPTED,,
+3828bdbc-d0da-49d1-8ed1-b8204b34fb51,Dun & Bradstreet Market Insight 1.1.x,ACTIVE_DATE,2017-10-01,ACCEPTED,,
+0edfbba0-d9a5-4620-931d-8c12078eca79,UNIT4 Enterprise Resource Planning,END_OF_LIFE_DATE,2026-12-31,ACCEPTED,,
+756e2897-7604-4d7b-834a-288c072fcff0,OpenText Intelligent Capture for SAP 21.4,END_OF_LIFE_DATE,2026-10-31,ACCEPTED,,
+29773773-5b66-4dbb-af73-4ff1a9bf74be,AWS Elastic Transcoder,END_OF_LIFE_DATE,2025-11-13,ACCEPTED,,
+6cdf5d3f-7528-43ca-8899-adce3a94ccc9,AWS Glue,END_OF_LIFE_DATE,2026-04-01,ACCEPTED,,
+b098ad7a-98e3-4fd5-8062-06d9837ac4a7,AWS OpsWorks,END_OF_LIFE_DATE,2024-05-26,ACCEPTED,,
+960e3407-f237-41c3-9c2a-bafcbf7a85ad,Microsoft Dynamics 365 for Finance and Operations Enterprise 7.3,END_OF_LIFE_DATE,2020-04-30,ACCEPTED,,
+7592e60d-a889-42a0-bb33-314e98690971,Workday Payroll and Workforce Management SaaS Hosting,ACTIVE_DATE,2011-05-24,ACCEPTED,,
+6163fe35-7a76-4089-baf9-ad93d376b1b0,Workday Talent Management SaaS Hosting,ACTIVE_DATE,2010-03-23,ACCEPTED,,
+f8ac5e0d-e231-43c1-8faa-2fef2484326c,Azure SQL Database 12.0,END_OF_LIFE_DATE,2024-07-09,ACCEPTED,,
+e882051a-1f5a-4e58-9d4a-416fdc115cf7,Azure Bot Service,END_OF_LIFE_DATE,2025-07-31,ACCEPTED,,
+f7e050d6-ad84-4438-af4c-98536190862c,Microsoft .NET Framework 3.0 SP2,END_OF_LIFE_DATE,2011-07-12,ACCEPTED,,
+588b63d0-2f9f-42f0-a081-35c64afcf169,SAP Cloud Platform,END_OF_LIFE_DATE,2028-12-31,ACCEPTED,,
+f895c827-6069-4efe-bc6f-6b1909dbc4b8,Azure Virtual Machines,ACTIVE_DATE,2010-02-01,ACCEPTED,,
+bd041a5e-451a-41b4-990a-9eda20d05f3e,Atlassian Jira Software SaaS Hosting,ACTIVE_DATE,2011-10-25,ACCEPTED,,
+873ae6a3-aef0-4c78-8f61-f1ca70d2a700,Microsoft SharePoint SaaS Hosting,ACTIVE_DATE,2011-06-28,ACCEPTED,,
+c6dd0c2f-e860-40fa-bf47-a19e0e69ec8f,McAfee Agent 5.7.x,END_OF_LIFE_DATE,2025-04-07,REJECTED,CORRECT_DATE_INCORRECT_URL,"The current link shows only the release date, not the EOL. The EOL date could be found on another official link, but the same date as suggested."
+d542e22b-4642-4f12-ba13-addf4b410934,Adobe Digital Editions 4.x,ACTIVE_DATE,NOT_FOUND,REJECTED,DATE_NOT_FOUND_ON_URL,The suggested date cannot be found on the link or other sources.
+8bcc5afb-fd77-431f-b31d-e6cebfa692da,SAP Web Dispatcher 7.5,ACTIVE_DATE,2015-10-20,REJECTED,DATE_NOT_FOUND_ON_URL,Date not found on the suggested link.
+a134efd1-9c20-44f2-88d3-694df5ae06d9,Igor Pavlov 7-Zip 24.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,DATE_NOT_FOUND_ON_URL,Suggested EOL is not available on the suggested URL
+24cb1cac-44b3-4524-b32a-d532b93d3e27,Autodesk AutoCAD 2019.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,DATE_NOT_FOUND_ON_URL,The suggested date cannot be found on the provided link.
+5d5d4a26-88ce-4623-92ac-8bd999c1862c,Lenovo Group ThinkCentre M93p,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,DATE_NOT_FOUND_ON_URL,Suggested date cannot be found on the suggested link or other sources.
+9013f6ab-f5f2-49b5-8dd4-accd7e58fdd7,Hyland Software OnBase SaaS Hosting,ACTIVE_DATE,NOT_FOUND,REJECTED,DATE_NOT_FOUND_ON_URL,The suggested date cannot be found on the suggested URL.
+1a1d7c25-e598-4c45-87e8-5d8ed6cb980e,Dynatrace Managed,ACTIVE_DATE,NOT_FOUND,REJECTED,DATE_NOT_FOUND_ON_URL,Suggested date cannot be found on the suggested link.
+af1c870d-3b5a-4d4f-a70e-60cd669d9e1f,Microsoft Visual Studio Tools for Applications 2019,ACTIVE_DATE,NOT_FOUND,REJECTED,INCORRECT_DATE,"The date is not correct, as it mentions 2025, but this product version can be found on previous years."
+6a47cf7b-5b29-43a0-aae4-dcbb520858b5,CD Foundation Jenkins 1.x,ACTIVE_DATE,2011-02-02,REJECTED,INCORRECT_DATE,"The suggested date is not correct. The correct date could be found on the provided link, though."
+3fced4bf-afad-437c-b84f-3840b06b57bb,Zoho CRM SaaS Hosting,ACTIVE_DATE,2005-01-01,REJECTED,INCORRECT_DATE,"The suggested URL gave a good hint on the date, but I found on the ""about us"" section from the provider that the CRM application was launched in 2005 rather than 2004."
+a70062f9-addb-43a9-b2da-ea4ec31296c5,Logitech Sync SaaS Hosting,ACTIVE_DATE,NOT_FOUND,REJECTED,INCORRECT_DATE,"The suggested date is incorrect, as this product is mentioned back in 2022."
+931690b2-5900-45fc-a22b-8186ca9b4b67,SAP SuccessFactors Agent Performance Management SaaS Hosting,ACTIVE_DATE,2021-06-29,REJECTED,INCORRECT_DATE,The Active Date was internally sourced and was different from the suggested one.
+9359718b-c5ab-45bc-9264-8cbe57f81cd4,Microsoft Viva Goals SaaS Hosting,END_OF_LIFE_DATE,2025-12-31,REJECTED,INVALID_OR_OUT_OF_SCOPE_URL,Suggetsed URL does not exists so could not verify the date
+3ce833b0-ecfe-44d3-81f9-6c23d5c7a26e,Spring Boot,ACTIVE_DATE,2014-04-01,REJECTED,INVALID_OR_OUT_OF_SCOPE_URL,The suggested URL is out of scope. The URL is not considered as a valid source of information.
+718ab49d-8c8d-4925-badc-e9e5a4ce24a9,Ansible 2.10.5,END_OF_LIFE_DATE,2021-02-16,REJECTED,INVALID_OR_OUT_OF_SCOPE_URL,The suggested URL is out of scope URL we do not consider this as a valid source
+7c8f9770-c910-436e-9440-70cb70bdd8b9,Lenovo Group ThinkCentre M900 10FM001TUS,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,INVALID_OR_OUT_OF_SCOPE_URL,This page has been moved to different location and that could not find as date is also not available from the suggested source
+f94a912a-551d-4cf9-91fc-a21ef43aeafe,IBM RPG V7R3,END_OF_LIFE_DATE,2023-09-30,REJECTED,INVALID_OR_OUT_OF_SCOPE_URL,Not a valid source. Suggested date is not specific to version mentioned in the task
+bb3e7558-6387-4736-b423-36f258867df2,Dell PowerEdge T110 II,END_OF_LIFE_DATE,2022-12-19,REJECTED,NO_EOL_INFORMATION,"As per the provider, the End of Life is not available for this product publicly. This is an unreliable source."
+f9386daa-0591-49d5-8fdd-02c573cb83c0,Dell PowerEdge R720,END_OF_LIFE_DATE,2018-05-25,REJECTED,NO_EOL_INFORMATION,"As per the provider, there is no EOL information for this product yet."
+0d13d009-48eb-4270-bde0-c4b52587d080,Apple macOS 12.x,END_OF_LIFE_DATE,2024-09-16,REJECTED,NO_EOL_INFORMATION,Apple does not publish end-of-life dates for its products. The suggested EOL date could not be found on providers official sources.
+db454c20-45fd-494f-9a95-f32c28a3c8c2,Apple macOS 10.15.x,END_OF_LIFE_DATE,2022-09-12,REJECTED,NO_EOL_INFORMATION,The End of Life dates has not been officially published by the provider.
+e036e326-efb9-410a-a99a-1ca41cd3299e,Dell PowerEdge T610,END_OF_LIFE_DATE,2012-09-01,REJECTED,NO_EOL_INFORMATION,Dell does not provide publicly the EOL for this product. This is an unreliable link.
+beffb963-2510-4582-9a88-7e841807cd50,Google reCAPTCHA 2.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,NO_EOL_INFORMATION,This version EOL was not announced on the official changelog.
+053b9f13-4e04-4a0c-8a88-117217ceb28f,Microsoft System Center Endpoint Protection,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,NO_EOL_INFORMATION,"The suggested date is for a specific version. As per the provider, the EOL was not yet announced."
+3801ac1f-497c-4c8a-a060-20816332ea27,Autodesk NavisWorks Freedom 2023,ACTIVE_DATE,NOT_FOUND,REJECTED,UNOFFICIAL_SOURCE_OR_MISMATCH,The release notes from the official provider is not available. The url is not consider as it is an unreliable source.
+9a7b270e-fb3b-40fb-83ae-e4c31c26cbba,NGINX nginx 1.18.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,UNOFFICIAL_SOURCE_OR_MISMATCH,The suggested URL is from a third party link.
+c9aa1f94-f21a-4e13-a1f7-c9a34a4ccc33,OpenJS Foundation jQuery 3.6.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,UNOFFICIAL_SOURCE_OR_MISMATCH,This is a third party URL which we do not consider as reliable.
+97e480f0-e0a8-4728-ba21-287f96ffa632,Microsoft Office Proofing Tools 2013,ACTIVE_DATE,2013-01-29,REJECTED,UNOFFICIAL_SOURCE_OR_MISMATCH,"The suggested date is uncorrect, and the suggested link is unofficial."
+e69a91ae-006e-417d-9ba3-9f53531d88c9,Autodesk AutoCAD 2020.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,UNOFFICIAL_SOURCE_OR_MISMATCH,Suggested URL from a third party source.
+b02ad200-5dbf-4571-8fe9-d7e855aa6033,OpenText Documentum 16.4,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,UNOFFICIAL_SOURCE_OR_MISMATCH,The suggested link is not a reliable URL to use for EOL. The EOL for this version cannot be found on providers official sources.
+8015051b-dd92-4a33-a7a8-bc75b08b954a,Google Looker Studio SaaS Hosting,ACTIVE_DATE,2022-10-11,REJECTED,UNOFFICIAL_SOURCE_OR_MISMATCH,Wrong date from third-party source. Found the original release date from providers blog as 2022-10-11.
+6babc860-a8fa-40db-b087-e5719734d3a0,Autodesk DWG TrueView 2023.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_LIFECYCLE_TYPE,"The suggested date is for the General Availability, not the End of Life."
+8dcba216-8da1-4d37-a1d9-30faa1a322a9,Microsoft Application Request Routing 3.0,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_LIFECYCLE_TYPE,"The suggested date is the release date, not the EOL. The EOL cannot be found on provider website."
+d60151cd-bf9f-4f1c-b119-697b57aaf6ca,QOS.ch Logback Classic Module,ACTIVE_DATE,2006-08-23,REJECTED,WRONG_LIFECYCLE_TYPE,Suggested date is just a parameter resulted date nota release date hence we have rejected this
+942cf914-60c9-4cc7-93d1-d53853aa6a2f,Microsoft Speech Platform 11.0,ACTIVE_DATE,2024-07-15,REJECTED,WRONG_LIFECYCLE_TYPE,The recommended date is not the release date.
+94b37dfb-dc16-4da4-aa85-72f3dba99ad4,Microsoft Help Viewer 2.2,ACTIVE_DATE,2015-07-20,REJECTED,WRONG_LIFECYCLE_TYPE,"The suggested link shows a installation date from a community forum, not the release date. The date on official sources could not be found."
+b60f2fa8-2cfe-4991-b377-1643bafb58d4,Crowdstrike Falcon Sensor 6.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_LIFECYCLE_TYPE,"The suggested date is a release date, not the EOL. Also, this is a third party source not considered."
+5e968198-8ff6-4bfd-8072-9b58e5c62629,Kronos UKG Dimensions Suite SaaS Hosting,ACTIVE_DATE,2018-03-01,REJECTED,WRONG_LIFECYCLE_TYPE,"The suggested date is a firmware version, not the release date."
+2804634b-f37d-4751-8362-39ee0aac1791,Wolters Kluwer Legisway SaaS Hosting,ACTIVE_DATE,NOT_FOUND,REJECTED,WRONG_LIFECYCLE_TYPE,"The suggested date is the announcement of a product functionality, not the release product itself."
+16d74bce-a721-4c35-9a92-ae48e551948c,Igor Pavlov 7-Zip 18.x,END_OF_LIFE_DATE,2019-02-21,REJECTED,WRONG_LIFECYCLE_TYPE,"This is thirdparty website, but the dates shows only release dates, not EOL."
+62e00346-477e-4fb8-8d39-6b8b08a56f11,Microsoft Office Proofing Tools 2016,END_OF_LIFE_DATE,2025-10-14,REJECTED,WRONG_PRODUCT_OR_COMPONENT,The Proofing Tools has a separate lifecycle from Microsoft Office standard release.
+f606fc6a-9639-4279-a59f-5569d07d1e16,Azure API Apps,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_PRODUCT_OR_COMPONENT,The suggested date is for a different product.
+5bd45b0e-3c74-486b-b077-ffee9c86f298,Cisco Systems Catalyst 1000 Series Switch,END_OF_LIFE_DATE,2030-04-30,REJECTED,WRONG_PRODUCT_OR_COMPONENT,"The suggested date is for software EOL. The factsheet is a hardware component, hence the date does not apply here."
+b1786e42-2114-4c0a-b949-1b3a9e74faa2,Microsoft Analysis Services OLE DB Provider 14.0,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_PRODUCT_OR_COMPONENT,The suggested date and link is for a different product.
+7cd2a55e-880a-4f43-a84f-69b1e07acc02,Microsoft Windows PowerShell 5.1.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_PRODUCT_OR_COMPONENT,The suggested EOL is in consideration of windows server product. Powershell should have sepearte EOL which is not available for now
+8c4585ce-0406-49ad-8e4e-a9e7208f2a91,Meta for Business SaaS Hosting,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_PRODUCT_OR_COMPONENT,The suggested date is for a different Meta solution.
+d27b3971-fafd-4e41-9fd2-87666dcb3f67,Cisco Systems Jabber 14.0.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_PRODUCT_OR_COMPONENT,"The suggested date is for Cisco UCM, however Jabber has different EOL dates from UCM."
+37e4fbea-2ea9-4c98-9938-54173bb9a0ba,Oracle MySQL Workbench Community 8.0.x,END_OF_LIFE_DATE,2026-04-30,REJECTED,WRONG_PRODUCT_OR_COMPONENT,The suggested date is for a different product.
+8f4a4f57-9470-413c-a049-67003db263f3,Microsoft Visual Studio Tools for Applications 10.0,END_OF_LIFE_DATE,2020-07-14,REJECTED,WRONG_VERSION_OR_SCOPE,This product can be used as a standalone mode and hence does not follow the lifecycle of Microsoft Visual Studio.
+6ed02a0b-8f72-41e1-9e25-b9991872d868,Axway API Gateway 7.7.x,END_OF_LIFE_DATE,2023-05-31,REJECTED,WRONG_VERSION_OR_SCOPE,The suggested date is for a different version.
+b366355b-af16-4575-beb1-443dda1c6d49,IBM API Connect 10.0.x,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_VERSION_OR_SCOPE,The suggested date is for a different version.
+b69271b0-592e-4f36-b229-0b215ec14131,Microsoft Analysis Services OLE DB Provider 15.0,END_OF_LIFE_DATE,NOT_FOUND,REJECTED,WRONG_VERSION_OR_SCOPE,The suggested date does not match / could not found on the URL mentioned
+859aff09-5658-4653-8375-964437d78339,Oracle Enterprise Performance Management Cloud SaaS Hosting,ACTIVE_DATE,2014-02-01,REJECTED,WRONG_VERSION_OR_SCOPE,The suggested date cannot be found and it refers to the on-premise version.

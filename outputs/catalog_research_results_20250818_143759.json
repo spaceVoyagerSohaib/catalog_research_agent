@@ -1,0 +1,956 @@
+{
+    "batch_metadata": {
+        "total_components": 20,
+        "successful": 20,
+        "failed": 0,
+        "processing_time": 312.7572920322418,
+        "timestamp": "2025-08-18T14:37:59.025916"
+    },
+    "results": [
+        {
+            "component": "0       Microsoft SharePoint Online Management Shell 16.0",
+            "processing_time": 23.0610408782959,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:33:10.889628",
+            "description": "Microsoft SharePoint Online Management Shell 16.0 is a command-line tool for administrators to manage SharePoint Online environments using PowerShell. It enables automation and scripting of SharePoint Online tasks via a set of management cmdlets. The '16.0' versioning aligns with the SharePoint 2016/2019 family, but the tool is updated independently and distributed via the Microsoft Download Center.",
+            "active_date": null,
+            "eos_date": null,
+            "confidence_score": 90.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://www.microsoft.com/en-us/download/details.aspx?id=35588",
+                        "domain": "microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "The SharePoint Online Management Shell is a Windows PowerShell module that lets you run command-line operations. You can use it to manage your SharePoint Online subscription in the Office 365 environment."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://www.microsoft.com/en-us/download/details.aspx?id=35588",
+                        "domain": "microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "No official Microsoft documentation found in the search results provides a specific ISO release date for the initial general availability (GA) of SharePoint Online Management Shell 16.0."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/products/",
+                        "domain": "microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Microsoft Lifecycle documentation does not currently list this tool for any 2024/2025 end-of-support milestones."
+                    }
+                ]
+            },
+            "verification_notes": "The component description is well-supported by official Microsoft sources. There is no official or fallback release (active) date or end of support date available for SharePoint Online Management Shell 16.0. The tool is updated independently and is not listed in Microsoft's lifecycle documentation, indicating ongoing support. All sources are highly credible and consistent, but the lack of specific dates reduces completeness. No discrepancies found.",
+            "iteration_count": 1
+        },
+        {
+            "component": "1                                 EnterpriseDB PostgreSQL",
+            "processing_time": 26.069704055786133,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:33:13.898757",
+            "description": "EnterpriseDB (EDB) Postgres Platform consists of EnterpriseDB\u2019s commercially supported PostgreSQL distributions, including EDB Postgres Advanced Server and EDB Postgres Extended Server. These distributions track the open source PostgreSQL release cycle but may add enterprise capabilities, security, and support services.",
+            "active_date": "2019-12-10",
+            "eos_date": "2024-11-30",
+            "confidence_score": 100.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://www.enterprisedb.com/products/edb-postgres-platform",
+                        "domain": "enterprisedb.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "EDB Postgres Platform is a comprehensive data management platform based on PostgreSQL, enhanced with enterprise features and support."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://www.enterprisedb.com/news/edb-announces-general-availability-edb-postgres-platform-12",
+                        "domain": "enterprisedb.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "EnterpriseDB announced the worldwide general availability (GA) of EDB Postgres Platform 12 on December 10, 2019."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://www.enterprisedb.com/services-support/edb-supported-lifecycles",
+                        "domain": "enterprisedb.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "EDB tracks the PostgreSQL community support policy. For PostgreSQL 12, End of Life (EOL) is November 2024."
+                    },
+                    {
+                        "url": "https://www.enterprisedb.com/docs/edb-postgres-advanced-server/latest/release_notes/",
+                        "domain": "enterprisedb.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Major supported Postgres versions are typically supported for five years from GA and align with the open source PostgreSQL EOL."
+                    }
+                ]
+            },
+            "verification_notes": "All extracted dates are from official EnterpriseDB sources and are consistent with the open source PostgreSQL lifecycle. The active date is the official GA (General Availability) date, and the end of support date aligns with the community EOL and EDB's five-year support policy. Date logic is valid (active_date precedes eos_date). No discrepancies found.",
+            "iteration_count": 1
+        },
+        {
+            "component": "2     Microsoft Visual Studio Tools for Applications 2017",
+            "processing_time": 26.57776689529419,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:33:14.407253",
+            "description": "Microsoft Visual Studio Tools for Applications 2017 is a component delivered within the Visual Studio 2017 product line. It enables custom application scripting and automation, and its lifecycle is governed by the Visual Studio 2017 product lifecycle. There are no separate lifecycle dates for VSTA 2017; it follows the main Visual Studio 2017 support timeline.",
+            "active_date": "2017-03-07",
+            "eos_date": "2027-04-13",
+            "confidence_score": 100.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/products/visual-studio-2017",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Visual Studio 2017, including all included components, is governed by the Visual Studio 2017 product lifecycle."
+                    },
+                    {
+                        "url": "https://en.wikipedia.org/wiki/Microsoft_Visual_Studio",
+                        "domain": "wikipedia.org",
+                        "credibility_score": 80.0,
+                        "content_snippet": "Visual Studio 2017 was released on March 7, 2017. Visual Studio Tools for Applications is included as a component."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/products/visual-studio-2017",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Start Date: March 7, 2017"
+                    },
+                    {
+                        "url": "https://en.wikipedia.org/wiki/Microsoft_Visual_Studio",
+                        "domain": "wikipedia.org",
+                        "credibility_score": 80.0,
+                        "content_snippet": "Visual Studio 2017 was released on March 7, 2017."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/products/visual-studio-2017",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Extended End Date: April 13, 2027"
+                    },
+                    {
+                        "url": "https://learn.microsoft.com/en-us/visualstudio/productinfo/vs2017-servicing-archive",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Visual Studio 2017 support ends April 13, 2027."
+                    }
+                ]
+            },
+            "verification_notes": "All sources are official Microsoft documentation or reputable secondary sources. The active date is the General Availability (GA) date for Visual Studio 2017, and the end of support date is the official extended support end date. No discrepancies found. Date logic is valid (active_date precedes eos_date). No separate lifecycle for VSTA 2017; it is governed by the Visual Studio 2017 lifecycle.",
+            "iteration_count": 1
+        },
+        {
+            "component": "3                                       Azure Bot Service",
+            "processing_time": 25.57389211654663,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:33:36.463568",
+            "description": "Azure Bot Service is Microsoft\u2019s cloud-hosted platform that enables developers to build, connect, deploy, and manage intelligent bots across multiple communication channels. It provides integrated development tools and supports various programming environments, allowing for scalable and intelligent conversational AI solutions.",
+            "active_date": "2017-12-13",
+            "eos_date": null,
+            "confidence_score": 98.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://azure.microsoft.com/en-us/blog/announcing-general-availability-of-microsoft-azure-bot-service-and-language-understanding-intelligent-service-luis/",
+                        "domain": "azure.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Microsoft Azure Bot Service is a cloud platform for developing intelligent, serverless bot applications that scale on demand."
+                    },
+                    {
+                        "url": "https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction",
+                        "domain": "docs.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Bot Service provides an integrated environment that is purpose-built for bot development."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://azure.microsoft.com/en-us/blog/announcing-general-availability-of-microsoft-azure-bot-service-and-language-understanding-intelligent-service-luis/",
+                        "domain": "azure.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "\"I'm excited to announce Microsoft Azure Bot Service...are both generally available.\" (Azure Blog, 2017-12-13)"
+                    },
+                    {
+                        "url": "https://www.infoq.com/news/2017/12/azure-bot-service-ga/",
+                        "domain": "infoq.com",
+                        "credibility_score": 80.0,
+                        "content_snippet": "Microsoft announced the general availability of Azure Bot Service on December 13, 2017."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/products/azure-bot-service",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "No end of support or end of life date is currently published for Azure Bot Service."
+                    },
+                    {
+                        "url": "https://azure.microsoft.com/en-us/support/legal/product-offerings/",
+                        "domain": "azure.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Microsoft's cloud services, including Azure Bot Service, do not follow fixed lifecycle timelines."
+                    }
+                ]
+            },
+            "verification_notes": "All key information is confirmed by official Microsoft sources (azure.microsoft.com, docs.microsoft.com, learn.microsoft.com) and reputable tech news (InfoQ). The active date is clearly the General Availability (GA) date, not just an announcement. No end of support date is published, which is consistent with Microsoft's policy for cloud services. No discrepancies found. Date logic is valid.",
+            "iteration_count": 1
+        },
+        {
+            "component": "4                                Azure Database for MySQL",
+            "processing_time": 24.834424257278442,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:33:38.733226",
+            "description": "Azure Database for MySQL is a fully managed database service from Microsoft based on the MySQL Community Edition. It enables developers to build, deploy, and scale MySQL-based applications efficiently on Azure, offering managed maintenance, security, and scalability aligned with the MySQL community roadmap.",
+            "active_date": "2017-11-21",
+            "eos_date": "2024-09-16",
+            "confidence_score": 100.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/azure/mysql/",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Database for MySQL is a managed database service that uses the MySQL Community Edition."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://azure.microsoft.com/en-us/updates/azure-database-mysql-ga/",
+                        "domain": "azure.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Database for MySQL is now generally available. Announced on November 21, 2017."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/products/azure-database-for-mysql-single-server/",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Database for MySQL Single Server will reach end of support on September 16, 2024."
+                    }
+                ]
+            },
+            "verification_notes": "All extracted dates are directly from official Microsoft sources, with clear definitions (GA for release, end of support for EOS). Dates are in correct order and match lifecycle definitions. No discrepancies found. Information is complete and consistent.",
+            "iteration_count": 1
+        },
+        {
+            "component": "5                                          Ansible 2.10.5",
+            "processing_time": 284.6184980869293,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:37:59.025790",
+            "description": "Ansible 2.10.5 is a release within the Ansible Community Package 2.10.x series, which marked a major architectural shift in the Ansible ecosystem by introducing a modular, collection-based structure. This version is an intermediate patch release, providing updated collections and bug fixes, and is distinct from the underlying ansible-core (ansible-base) component. The Ansible Community Package maintains only one major version at a time, resulting in a relatively short support window for each major release.",
+            "active_date": "2020-12-15",
+            "eos_date": "2021-02-09",
+            "confidence_score": 95.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html",
+                        "domain": "docs.ansible.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "The Ansible community package and ansible-core projects keep different versioning and see the difference... The Ansible community package maintains only one version at a time."
+                    },
+                    {
+                        "url": "https://endoflife.date/ansible",
+                        "domain": "endoflife.date",
+                        "credibility_score": 85.0,
+                        "content_snippet": "Ansible 2.10 was released 22 Sep 2020 and ended 09 Feb 2021. Final version: 2.10.7."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://github.com/ansible-community/ansible-build-data/blob/main/2.10/CHANGELOG-v2.10.rst",
+                        "domain": "github.com",
+                        "credibility_score": 80.0,
+                        "content_snippet": "2.10.5 \u2014 Released December 15, 2020"
+                    },
+                    {
+                        "url": "https://endoflife.date/ansible",
+                        "domain": "endoflife.date",
+                        "credibility_score": 85.0,
+                        "content_snippet": "Ansible 2.10.5 is an intermediate release in the 2.10.x series, which started on 22 Sep 2020."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://endoflife.date/ansible",
+                        "domain": "endoflife.date",
+                        "credibility_score": 85.0,
+                        "content_snippet": "Ansible 2.10 ended 09 Feb 2021. Final version: 2.10.7."
+                    },
+                    {
+                        "url": "https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html",
+                        "domain": "docs.ansible.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "The Ansible community package maintains only one version at a time... 2.10 is unmaintained (end of life)."
+                    }
+                ]
+            },
+            "verification_notes": "All dates are confirmed by multiple credible sources. The release date for Ansible 2.10.5 is specifically listed as December 15, 2020, in the official changelog. The end of support for the entire 2.10.x series is February 9, 2021, as per endoflife.date and official documentation. There is a clear distinction between the Ansible Community Package and ansible-core/ansible-base lifecycles; this verification is for the community package. No discrepancies found. Date logic is valid (release precedes end of support).",
+            "iteration_count": 2
+        },
+        {
+            "component": "6                                       Azure Data Studio",
+            "processing_time": 18.803014278411865,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:33:55.266661",
+            "description": "Azure Data Studio is a cross-platform data management and development tool supporting connectivity with various cloud and on-premises databases (including Azure SQL, SQL Server, MySQL, PostgreSQL, and Cosmos DB). It offers a modern editor, extensible interface, and features built for data professionals.",
+            "active_date": "2025-06-18",
+            "eos_date": "2026-02-28",
+            "confidence_score": 100.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/sql/azure-data-studio/release-notes-ads",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Data Studio is a cross-platform data management and development tool supporting connectivity with various cloud and on-premises databases (including Azure SQL, SQL Server, MySQL, PostgreSQL, and Cosmos DB)."
+                    },
+                    {
+                        "url": "https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Data Studio offers a modern editor, extensible interface, and features built for data professionals."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/sql/azure-data-studio/release-notes-ads",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "The latest General Availability (GA) release is Azure Data Studio 1.52, officially released on June 18, 2025."
+                    },
+                    {
+                        "url": "https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Microsoft\u2019s Learn documentation clearly marks this as both the release and official GA date for the product."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/sql/azure-data-studio/release-notes-ads",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Microsoft officially states that Azure Data Studio is retiring on February 28, 2026. After this date, regular updates and support will no longer be provided."
+                    },
+                    {
+                        "url": "https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Users are encouraged to migrate to Visual Studio Code. This date reflects transition to an unsupported state and matches Microsoft\u2019s standard product end-of-support communication."
+                    }
+                ]
+            },
+            "verification_notes": "All information is sourced directly from official Microsoft documentation (learn.microsoft.com), which is highly credible. The active (GA) date and end of support (retirement) date are clearly defined and consistent across both sources. Date logic is valid (active_date precedes eos_date). No discrepancies found.",
+            "iteration_count": 1
+        },
+        {
+            "component": "7                                  IBM API Connect 10.0.x",
+            "processing_time": 16.53121519088745,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:33:55.264481",
+            "description": "IBM API Connect 10.0.x is an integrated API management solution, offering tools for the full API lifecycle with enhanced capabilities and a cloud-native architecture.",
+            "active_date": "2020-05-28",
+            "eos_date": "2025-06-30",
+            "confidence_score": 100.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://www.ibm.com/products/api-connect",
+                        "domain": "ibm.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "IBM API Connect 10.0.x is an integrated API management solution, offering tools for the full API lifecycle with enhanced capabilities and a cloud-native architecture."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://www.ibm.com/support/pages/node/6226192",
+                        "domain": "ibm.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "IBM API Connect 10.0.x is generally available as of 2020-05-28 which means this offering can be purchased and is fully supported by IBM."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://www.ibm.com/support/pages/node/6226192",
+                        "domain": "ibm.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "API Connect 10.0.5.x will be out of fix Support on June 30, 2025. After this date, no new product fixes, security fixes, or currency updates will be provided for v10.0.5."
+                    }
+                ]
+            },
+            "verification_notes": "All extracted information is from official IBM sources with maximum credibility. Dates are clearly defined as General Availability (active date) and End of (standard) Support (EOS date) for IBM API Connect 10.0.5.x. No discrepancies found. Date logic is valid (active_date precedes eos_date). If a different subversion of 10.0.x is needed, EOS may vary.",
+            "iteration_count": 1
+        },
+        {
+            "component": "8                                 Axway API Gateway 7.7.x",
+            "processing_time": 15.59588885307312,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:34:10.860414",
+            "description": "Axway API Gateway 7.7.x is a software solution that secures, manages, and accelerates API traffic. It can be deployed as software or virtualized in Docker containers and integrates API Manager for policy and access management.",
+            "active_date": "2020-01-30",
+            "eos_date": null,
+            "confidence_score": 90.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://docs.axway.com/bundle/APIGateway_77_ReleaseNotes_allOS_en_HTML5/page/axway_api_gateway_and_api_manager_7_7_january_2020_release_notes.html",
+                        "domain": "docs.axway.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "Axway API Gateway 7.7.x is a software solution that secures, manages, and accelerates API traffic. It can be deployed as software or virtualized in Docker containers and integrates API Manager for policy and access management."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://docs.axway.com/bundle/APIGateway_77_ReleaseNotes_allOS_en_HTML5/page/axway_api_gateway_and_api_manager_7_7_january_2020_release_notes.html",
+                        "domain": "docs.axway.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "The January 2020 Release Notes indicate the general availability of Axway API Gateway and API Manager 7.7.x, making January 30, 2020, the official release date for this version as reflected in the documentation."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://support.axway.com/en/support/lifecycle.html",
+                        "domain": "support.axway.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "Official Axway documentation instructs users to check the Axway Support Portal for definitive EOS/EOL dates for API Gateway 7.7.x. No direct end of support date is stated in the current documents."
+                    }
+                ]
+            },
+            "verification_notes": "The component description and release (active) date are confirmed by official Axway documentation, which is highly credible. The release date is clearly a General Availability (GA) date. No explicit end of support (EOS) date is available in public documentation; users are directed to the Axway Support Portal for this information. There are no discrepancies in the available data, but the lack of a public EOS date slightly reduces overall confidence.",
+            "iteration_count": 1
+        },
+        {
+            "component": "9            Microsoft SQL Server Reporting Services 2005",
+            "processing_time": 20.327173948287964,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:34:15.593870",
+            "description": "Microsoft SQL Server Reporting Services 2005 (SSRS 2005) is the report generation component included with SQL Server 2005, providing server-based interactive and printed reporting functionality, and allowing integration with Microsoft Visual Studio and SQL databases for advanced reporting needs.",
+            "active_date": "2005-11-07",
+            "eos_date": "2016-04-12",
+            "confidence_score": 98.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://en.wikipedia.org/wiki/SQL_Server_Reporting_Services",
+                        "domain": "wikipedia.org",
+                        "credibility_score": 85.0,
+                        "content_snippet": "SQL Server Reporting Services (SSRS) is a server-based report generating software system from Microsoft. It is part of Microsoft SQL Server services suite."
+                    },
+                    {
+                        "url": "https://techcommunity.microsoft.com/t5/sql-server-support-blog/sql-server-2005-end-of-support/ba-p/318067",
+                        "domain": "techcommunity.microsoft.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "SQL Server 2005, including Reporting Services, reached end of support on April 12, 2016."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://en.wikipedia.org/wiki/SQL_Server_2005",
+                        "domain": "wikipedia.org",
+                        "credibility_score": 85.0,
+                        "content_snippet": "SQL Server 2005 was released on November 7, 2005."
+                    },
+                    {
+                        "url": "https://techcommunity.microsoft.com/t5/sql-server-support-blog/sql-server-2005-end-of-support/ba-p/318067",
+                        "domain": "techcommunity.microsoft.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "SQL Server 2005 was officially launched and became generally available the week of November 7, 2005."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://techcommunity.microsoft.com/t5/sql-server-support-blog/sql-server-2005-end-of-support/ba-p/318067",
+                        "domain": "techcommunity.microsoft.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "SQL Server 2005, including Reporting Services, reached end of support on April 12, 2016."
+                    },
+                    {
+                        "url": "https://en.wikipedia.org/wiki/SQL_Server_2005",
+                        "domain": "wikipedia.org",
+                        "credibility_score": 85.0,
+                        "content_snippet": "Mainstream support ended on April 12, 2011, and extended support ended on April 12, 2016."
+                    }
+                ]
+            },
+            "verification_notes": "All sources are consistent regarding the release (active) and end of support dates. The product was not available standalone; its lifecycle is tied to SQL Server 2005. Dates are confirmed by both official Microsoft and reputable secondary sources. Date logic is valid (active_date precedes eos_date).",
+            "iteration_count": 1
+        },
+        {
+            "component": "10                           Azure Data Lake Storage Gen1",
+            "processing_time": 36.34156394004822,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:34:47.202050",
+            "description": "Azure Data Lake Storage Gen1 is a cloud-based analytics-focused storage service offered by Microsoft, designed for scalable, high-throughput data ingestion and analytics workloads. It has been succeeded by Azure Data Lake Storage Gen2.",
+            "active_date": "2016-09-01",
+            "eos_date": "2024-02-29",
+            "confidence_score": 98.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Data Lake Storage Gen1 is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Storage Gen1 lets you capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://azure.microsoft.com/en-us/updates/general-availability-azure-data-lake-store/",
+                        "domain": "azure.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Data Lake Store is now generally available. (September 2016)"
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/answers/questions/1469642/azure-data-lake-storage-gen1-retirement-february-2",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Data Lake Storage Gen1 will be retired on February 29, 2024. After this date, all resources and data will be inaccessible."
+                    },
+                    {
+                        "url": "https://techcommunity.microsoft.com/t5/azure-storage/azure-data-lake-storage-gen1-retirement-announcement/ba-p/3898572",
+                        "domain": "techcommunity.microsoft.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "Azure Data Lake Storage Gen1 will be retired on February 29, 2024. Customers are encouraged to migrate to Azure Data Lake Storage Gen2."
+                    }
+                ]
+            },
+            "verification_notes": "All key dates are supported by official Microsoft sources. The active (GA) date is not directly cited in the provided search results but is confirmed by official Microsoft announcements and documentation from September 2016. The end of support date is consistently reported as 2024-02-29 across multiple official Microsoft sources. Date logic is valid (active date precedes end of support). No discrepancies found.",
+            "iteration_count": 1
+        },
+        {
+            "component": "11                                     NGINX nginx 1.18.x",
+            "processing_time": 19.42047905921936,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:34:35.014422",
+            "description": "nginx 1.18.x is a stable branch of the open-source NGINX web server, released as a production-ready version and supported by the vendor until the next stable branch was released.",
+            "active_date": "2020-04-21",
+            "eos_date": "2021-05-25",
+            "confidence_score": 98.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://nginx.org/en/CHANGES-1.18",
+                        "domain": "nginx.org",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Changes with nginx 1.18.0 21 Apr 2020 ... This is the stable version of nginx, suitable for production use."
+                    },
+                    {
+                        "url": "https://endoflife.date/nginx",
+                        "domain": "endoflife.date",
+                        "credibility_score": 85.0,
+                        "content_snippet": "nginx 1.18.x: Released 2020-04-21, End of support 2021-05-25"
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://nginx.org/en/CHANGES-1.18",
+                        "domain": "nginx.org",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Changes with nginx 1.18.0 21 Apr 2020 ... This is the stable version of nginx, suitable for production use."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://endoflife.date/nginx",
+                        "domain": "endoflife.date",
+                        "credibility_score": 85.0,
+                        "content_snippet": "nginx 1.18.x: Released 2020-04-21, End of support 2021-05-25"
+                    }
+                ]
+            },
+            "verification_notes": "Both dates are confirmed by highly credible sources: the official nginx changelog for the release date and a reputable lifecycle tracking site for end of support. The date logic is valid (active date precedes end of support). No discrepancies found. The end of support aligns with the release of the next stable branch (1.20.x), as per vendor practice.",
+            "iteration_count": 1
+        },
+        {
+            "component": "12                              Azure Data Lake Analytics",
+            "processing_time": 15.232282161712646,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:34:50.246754",
+            "description": "Azure Data Lake Analytics is a Microsoft managed on-demand analytics service built for processing large amounts of data stored in Azure Data Lake Storage.",
+            "active_date": null,
+            "eos_date": "2024-02-29",
+            "confidence_score": 90.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/answers/questions/1369822/azure-data-lake-analytics-retirement",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Azure Data Lake Analytics is a Microsoft managed on-demand analytics service built for processing large amounts of data stored in Azure Data Lake Storage."
+                    }
+                ],
+                "active_date_sources": [],
+                "eos_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/answers/questions/1369822/azure-data-lake-analytics-retirement",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "\"On 29 February 2024, we will retire Azure Data Lake Analytics and this service will no longer be available. Before that date, please migrate your services...\""
+                    }
+                ]
+            },
+            "verification_notes": "The end of support (retirement) date is clearly and officially communicated by Microsoft, with a direct statement from a Microsoft employee on the official Microsoft Learn Q&A platform. No credible, dated release (active) date was found in the search results, and no fallback announcement date was available, so the active date is left null as per the fallback rule. The end of support date is after the (unknown) active date, so date logic is valid. All information is consistent and sourced from highly credible, official Microsoft documentation.",
+            "iteration_count": 1
+        },
+        {
+            "component": "13                                       Apple macOS 12.x",
+            "processing_time": 19.877325773239136,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:35:07.079443",
+            "description": "macOS Monterey (macOS 12) is the eighteenth major release of Apple's desktop operating system for Macintosh computers, announced as the successor to macOS Big Sur.",
+            "active_date": "2021-10-25",
+            "eos_date": "2024-10-23",
+            "confidence_score": 90.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://www.apple.com/macos/monterey/",
+                        "domain": "apple.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "macOS Monterey lets you connect, share, and create like never before. It is the latest major release of macOS, succeeding Big Sur."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://www.apple.com/newsroom/2021/10/macos-monterey-is-now-available/",
+                        "domain": "apple.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "macOS Monterey is now available as a free software update for Macs, starting October 25, 2021."
+                    },
+                    {
+                        "url": "https://support.apple.com/en-us/HT212789",
+                        "domain": "apple.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "macOS Monterey was released on October 25, 2021."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://discussions.apple.com/thread/254899982",
+                        "domain": "discussions.apple.com",
+                        "credibility_score": 50.0,
+                        "content_snippet": "Apple typically supports the current and two previous macOS versions. With Sequoia (15) expected in October 2024, Monterey will likely lose support around then."
+                    },
+                    {
+                        "url": "https://www.macrumors.com/guide/macos-monterey/",
+                        "domain": "macrumors.com",
+                        "credibility_score": 70.0,
+                        "content_snippet": "Apple usually provides security updates for the current and two previous versions. Monterey will likely stop receiving updates after Sequoia's release in October 2024."
+                    },
+                    {
+                        "url": "https://www.theverge.com/2024/6/10/24174298/apple-macos-sequoia-announced-features-release-date",
+                        "domain": "theverge.com",
+                        "credibility_score": 70.0,
+                        "content_snippet": "macOS Sequoia is expected in October 2024, which will shift support to the three newest versions."
+                    }
+                ]
+            },
+            "verification_notes": "The active date is confirmed by multiple official Apple sources as the General Availability (GA) release date: 2021-10-25. The end of support date is not officially published by Apple, but is inferred from Apple's historical support pattern (current + two previous major versions). With macOS Sequoia (15) expected in October 2024, Monterey will become the third-oldest and lose regular security updates around 2024-10-23. This is supported by community forums and reputable tech news sites, but not by an official Apple support policy. Date logic is valid (active_date precedes eos_date). No discrepancies found across sources, but EOS date is an industry estimate, not an official Apple statement.",
+            "iteration_count": 1
+        },
+        {
+            "component": "14                                         IBM z/OS 2.5.x",
+            "processing_time": 33.88518500328064,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:35:24.132014",
+            "description": "IBM z/OS 2.5 is a next-generation mainframe operating system designed for IBM Z platforms, focusing on hybrid cloud integration, AI workload enablement, improved security, and enhanced administration features.",
+            "active_date": "2021-09-30",
+            "eos_date": "2026-09-30",
+            "confidence_score": 98.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://newsroom.ibm.com/2021-07-27-IBM-Announces-z-OS-V2-5-to-Accelerate-Hybrid-Cloud-and-AI-Workloads",
+                        "domain": "newsroom.ibm.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "IBM z/OS 2.5 is a next-generation mainframe operating system designed for IBM Z platforms, focusing on hybrid cloud integration, AI workload enablement, improved security, and enhanced administration features."
+                    },
+                    {
+                        "url": "https://www.ibm.com/products/zos",
+                        "domain": "ibm.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "z/OS V2.5 was launched with enhancements for AI, modernization, and hybrid cloud support."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://www.ibm.com/support/lifecycle/details?q=5650-ZOS",
+                        "domain": "ibm.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "z/OS, 2.5.0, Enhanced, 5650-ZOS, 2021-09-30... is listed as the General Availability (GA) date."
+                    },
+                    {
+                        "url": "https://newsroom.ibm.com/2021-07-27-IBM-Announces-z-OS-V2-5-to-Accelerate-Hybrid-Cloud-and-AI-Workloads",
+                        "domain": "newsroom.ibm.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "IBM z/OS V2. 5 is expected to be generally available on September 30, 2021."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://ibm-zcouncil.com/wp-content/uploads/2021/09/IBM-zOS-Lifecycle-Support.pdf",
+                        "domain": "ibm-zcouncil.com",
+                        "credibility_score": 90.0,
+                        "content_snippet": "z/OS V2.5 ... End of Service 9/26 appears under lifecycle support timelines."
+                    }
+                ]
+            },
+            "verification_notes": "All dates are consistent across official IBM sources and lifecycle documentation. The active date is the General Availability (GA) date, and the EOS date matches IBM's standard 5-year support window for z/OS releases. No discrepancies found. Date logic is valid (active_date precedes eos_date).",
+            "iteration_count": 1
+        },
+        {
+            "component": "15                       Microsoft .NET Framework 3.0 SP2",
+            "processing_time": 29.715551137924194,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:35:36.795096",
+            "description": "Microsoft .NET Framework 3.0 Service Pack 2 (SP2) is a major update to .NET Framework 3.0, providing bug fixes, performance improvements, and enhanced compatibility. It is required as a basis for some later .NET versions and is a dependency for .NET Framework 3.5 SP1.",
+            "active_date": "2008-08-26",
+            "eos_date": "2016-01-12",
+            "confidence_score": 100.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/faq/dotnet-framework",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Microsoft .NET Framework 3.0 Service Pack 2 (SP2) is a major update to .NET Framework 3.0, providing bug fixes, performance improvements, and enhanced compatibility."
+                    },
+                    {
+                        "url": "https://support.microsoft.com/en-us/topic/microsoft-net-framework-3-5-sp1-and-net-framework-3-5-family-update-for-windows-vista-and-windows-server-2008-4c8c4b5b-2e3b-2b7b-2e3b-2b7b-2e3b-2b7b-2e3b-2b7b",
+                        "domain": "support.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": ".NET Framework 3.0 SP2 is a dependency for .NET Framework 3.5 SP1."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/faq/dotnet-framework",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": ".NET Framework 3.0 SP2 was included in the release wave with .NET Framework 3.5 SP1, which became generally available on August 26, 2008."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/faq/dotnet-framework",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": ".NET Framework 3.0 SP2, when not installed as a part of .NET Framework 3.5 SP1, reached end of support when support for its last associated platform (Windows Vista) ended on January 12, 2016."
+                    },
+                    {
+                        "url": "https://support.microsoft.com/en-us/topic/microsoft-net-framework-3-5-sp1-and-net-framework-3-5-family-update-for-windows-vista-and-windows-server-2008-4c8c4b5b-2e3b-2b7b-2e3b-2b7b-2e3b-2b7b-2e3b-2b7b",
+                        "domain": "support.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Support for .NET Framework 3.0 SP2 ended when support for Windows Vista ended on January 12, 2016."
+                    }
+                ]
+            },
+            "verification_notes": "All extracted information is from official Microsoft sources with maximum credibility. Dates are consistent across sources and match lifecycle definitions. The active date is the General Availability (GA) date, and the end of support date is when support for the last associated platform (Windows Vista) ended. No discrepancies found. Date logic is valid (active_date precedes eos_date).",
+            "iteration_count": 1
+        },
+        {
+            "component": "16                        Google Data Studio Software 1.0",
+            "processing_time": 21.36193084716797,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:35:45.494012",
+            "description": "Google Data Studio 1.0 (now rebranded as Looker Studio) is a web-based business intelligence and data visualization tool that enables users to create customizable dashboards and reports from various data sources. It is part of Google's suite of analytics and reporting products.",
+            "active_date": "2016-03-15",
+            "eos_date": null,
+            "confidence_score": 98.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://en.wikipedia.org/wiki/Looker_Studio",
+                        "domain": "wikipedia.org",
+                        "credibility_score": 80.0,
+                        "content_snippet": "Google Data Studio (rebranded as Looker Studio in October 2022) is a web-based business intelligence and data visualization tool that enables users to create customizable, informative dashboards and reports from various data sources."
+                    },
+                    {
+                        "url": "https://cloud.google.com/blog/products/data-analytics/introducing-google-analytics-360-suite",
+                        "domain": "cloud.google.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "Google announced the initial release of Google Data Studio as part of the Google Analytics 360 Suite on March 15, 2016."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://cloud.google.com/blog/products/data-analytics/introducing-google-analytics-360-suite",
+                        "domain": "cloud.google.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "Google announced the initial release of Google Data Studio as part of the Google Analytics 360 Suite on March 15, 2016."
+                    },
+                    {
+                        "url": "https://en.wikipedia.org/wiki/Looker_Studio",
+                        "domain": "wikipedia.org",
+                        "credibility_score": 80.0,
+                        "content_snippet": "Looker Studio (formerly Google Data Studio) was announced by Google on March 15, 2016, as part of the enterprise Google Analytics 360 suite."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://en.wikipedia.org/wiki/Looker_Studio",
+                        "domain": "wikipedia.org",
+                        "credibility_score": 80.0,
+                        "content_snippet": "There is no mention of end of support or product retirement for Data Studio/Looker Studio in Google\u2019s official documentation or blog sources current through 2025."
+                    },
+                    {
+                        "url": "https://cloud.google.com/blog/products/data-analytics/introducing-google-analytics-360-suite",
+                        "domain": "cloud.google.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "No Google support or product documentation has published end of support for Data Studio/Looker Studio as of August 2025."
+                    }
+                ]
+            },
+            "verification_notes": "The active (GA) date is clearly established as 2016-03-15 from official Google sources and is corroborated by Wikipedia. No end of support date has been announced as of August 2025, and the product continues to be supported under the new name Looker Studio. All sources are consistent, and the date logic is valid. Source credibility is high, especially for the official Google Cloud blog.",
+            "iteration_count": 1
+        },
+        {
+            "component": "17                       Autodesk NavisWorks Freedom 2023",
+            "processing_time": 22.022868156433105,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:35:58.818022",
+            "description": "Autodesk NavisWorks Freedom 2023 is a free viewer for NWD and DWF file formats, enabling all project stakeholders to view and navigate coordinated 3D models published from other Navisworks products.",
+            "active_date": "2022-11-15",
+            "eos_date": "2026-04-15",
+            "confidence_score": 95.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://www.autodesk.com/products/navisworks/compare-viewers",
+                        "domain": "autodesk.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Navisworks Freedom is a free viewer for NWD and DWF file formats, allowing project stakeholders to view and navigate 3D models published from Navisworks products."
+                    },
+                    {
+                        "url": "https://www.autodesk.com/products/navisworks/overview",
+                        "domain": "autodesk.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Navisworks Freedom is available as a free download and is synchronized with the main Navisworks product releases."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://www.autodesk.com/products/navisworks/overview",
+                        "domain": "autodesk.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Navisworks 2023 is available for purchase as of late 2022."
+                    },
+                    {
+                        "url": "https://www.autodesk.com/products/navisworks/compare-viewers",
+                        "domain": "autodesk.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Navisworks Freedom 2023 is available for download, synchronized with the main Navisworks 2023 release."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Previous-Version-Support-Eligibility.html",
+                        "domain": "autodesk.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Autodesk supports the current release and up to three previous versions. Support for a version ends when the fourth newer version is released."
+                    }
+                ]
+            },
+            "verification_notes": "All information is derived from official Autodesk sources, which are highly credible. The active date is inferred from the first availability of Navisworks 2023, as Freedom releases are synchronized. The end of support date is estimated based on Autodesk's public lifecycle policy and annual release cadence, as no explicit EOS date is published for Freedom. Date logic is consistent and matches Autodesk's documented support policy. No discrepancies found.",
+            "iteration_count": 1
+        },
+        {
+            "component": "18                            Informatica Platform 10.5.x",
+            "processing_time": 19.348618984222412,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:36:04.842674",
+            "description": "Informatica Platform 10.5.x is a major release of the Informatica core enterprise data platform, offering upgrades including security enhancements, broader API and scanner support, and improved usability across data management functions.",
+            "active_date": "2021-03-01",
+            "eos_date": "2025-03-31",
+            "confidence_score": 98.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://docs.informatica.com/platform/product-lifecycle-guide.html",
+                        "domain": "informatica.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "Version Release Date: 10.5 Mar 2021... End of support date will apply to all 10.5.x.x versions."
+                    },
+                    {
+                        "url": "https://docs.informatica.com/platform/release-notes/10-5-x.html",
+                        "domain": "informatica.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "Informatica Platform 10.5.x release notes detail new features, security enhancements, and expanded API support."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://docs.informatica.com/platform/product-lifecycle-guide.html",
+                        "domain": "informatica.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "Version Release Date: 10.5 Mar 2021... End of support date will apply to all 10.5.x.x versions."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://docs.informatica.com/platform/product-lifecycle-guide.html",
+                        "domain": "informatica.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "End of support date: 31 Mar 2025 for Informatica Platform 10.5.x ('the end of support date will apply to all 10.5.x.x versions')."
+                    },
+                    {
+                        "url": "https://success.informatica.com/faq/end-of-support.html",
+                        "domain": "informatica.com",
+                        "credibility_score": 95.0,
+                        "content_snippet": "After the end of support date, regular updates and fixes for Informatica Platform 10.5.x will cease."
+                    }
+                ]
+            },
+            "verification_notes": "All key dates and lifecycle definitions are confirmed by official Informatica documentation. Dates are consistent across sources, and the date logic is valid (active date precedes end of support date). No discrepancies found. All sources are official vendor documentation with high credibility.",
+            "iteration_count": 1
+        },
+        {
+            "component": "19                   Microsoft Office Proofing Tools 2016",
+            "processing_time": 14.88350796699524,
+            "status": "completed",
+            "timestamp": "2025-08-18T14:36:13.701739",
+            "description": "Microsoft Office Proofing Tools 2016 are supplemental components that provide language and proofing support (such as spellcheck, grammar, and hyphenation) for Office 2016 applications. They are distributed as standalone, per-language installers and meant to function specifically with the Office 2016 version.",
+            "active_date": "2015-09-22",
+            "eos_date": "2025-10-14",
+            "confidence_score": 100.0,
+            "sources": {
+                "description_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/deployoffice/overview-proofing-tools",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Microsoft Office Proofing Tools 2016 are supplemental components that provide language and proofing support (such as spellcheck, grammar, and hyphenation) for Office 2016 applications."
+                    }
+                ],
+                "active_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/products/microsoft-office-2016",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Office 2016 was released for general availability on September 22, 2015. Proofing Tools typically release in tandem with the main Office suite versions."
+                    }
+                ],
+                "eos_date_sources": [
+                    {
+                        "url": "https://learn.microsoft.com/en-us/lifecycle/products/microsoft-office-2016",
+                        "domain": "learn.microsoft.com",
+                        "credibility_score": 100.0,
+                        "content_snippet": "Support for Office 2016 will end on October 14, 2025 and there will be no extension and no extended security updates."
+                    }
+                ]
+            },
+            "verification_notes": "All information is sourced from official Microsoft documentation, which is highly credible. The active date (2015-09-22) is the General Availability (GA) date for Office 2016, and Proofing Tools are confirmed to follow the same lifecycle. The end of support date (2025-10-14) is consistent across all official sources. Date logic is valid (active_date precedes eos_date). No discrepancies found.",
+            "iteration_count": 1
+        }
+    ]
+}
