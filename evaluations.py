@@ -9,6 +9,7 @@ from typing import Dict, List, Optional, Tuple
 
 EVAL_CSV_PATH = os.path.join(os.path.dirname(__file__), 'evaluation_set', 'evaluation_set.csv')
 OUTPUTS_DIR = os.path.join(os.path.dirname(__file__), 'outputs')
+EVAL_REPORTS_DIR = os.path.join(os.path.dirname(__file__), 'evaluations')
 
 
 
@@ -42,19 +43,24 @@ class Comparison:
 
 @dataclass
 class Metrics:
-    # Matching stats
+    # Totals
     csv_rows: int
-    matched: int
-    unmatched: int
+    evaluated_rows: int  # total components evaluated (matched)
+    targets_null: int    # reference NULL target dates (NOT_FOUND)
+    outputs_null: int    # predicted NULL in outputs
+    targets_with_date: int
+    outputs_with_date: int
+    # Exact
     exact_matches: int
     exact_nf_matches: int
     exact_date_matches: int
-    wrong_phase_matches: int
-    target_has_date: int
-    predicted_missing_when_target_present: int
-    # Delta stats (reduced)
-    pairs_with_both_dates: int
-    buckets: Dict[str, int]
+    # Mismatches
+    mismatches_total: int
+    mismatched_dates: int
+    mismatches_pred_null_target_date: int
+    mismatches_pred_date_target_null: int
+    # Delta buckets (non-zero only)
+    delta_buckets: Dict[str, int]
 
 
 # -----------------------------
@@ -170,9 +176,8 @@ class LifecycleEvaluator:
 
     # -------- aggregation & reporting --------
 
-    def _bucketize(self, values: List[int]) -> Dict[str, int]:
+    def _bucketize_nonzero(self, values: List[int]) -> Dict[str, int]:
         buckets = {
-            '== 0 days': 0,
             '<= 1 day': 0,
             '<= 3 days': 0,
             '<= 7 days': 0,
@@ -181,9 +186,9 @@ class LifecycleEvaluator:
             '> 90 days': 0,
         }
         for v in values:
-            if v == 0:
-                buckets['== 0 days'] += 1
-            elif v <= 1:
+            if v <= 0:
+                continue
+            if v <= 1:
                 buckets['<= 1 day'] += 1
             elif v <= 3:
                 buckets['<= 3 days'] += 1
@@ -197,37 +202,41 @@ class LifecycleEvaluator:
                 buckets['> 90 days'] += 1
         return buckets
 
-    def _aggregate(self, comparisons: List[Comparison], total_rows: int, unmatched: int) -> Metrics:
-        exact_matches = sum(1 for c in comparisons if c.exact_match)
-        exact_nf_matches = sum(1 for c in comparisons if c.exact_nf_match)
-        exact_date_matches = sum(1 for c in comparisons if (c.target_date is not None and c.predicted_date is not None and c.target_date == c.predicted_date))
-        wrong_phase_matches = sum(1 for c in comparisons if c.wrong_phase_match)
-        target_has_date = sum(1 for c in comparisons if c.target_date is not None)
-        predicted_missing_when_target_present = sum(1 for c in comparisons if (c.target_date is not None and c.predicted_date is None))
+    def _aggregate(self, comparisons: List[Comparison], total_rows: int) -> Metrics:
+        evaluated_rows = len(comparisons)
 
-        deltas = [c.abs_days_delta for c in comparisons if c.abs_days_delta is not None]
-        n = len(deltas)
+        targets_null = sum(1 for c in comparisons if c.target_date is None)
+        outputs_null = sum(1 for c in comparisons if c.predicted_date is None)
+        targets_with_date = evaluated_rows - targets_null
+        outputs_with_date = evaluated_rows - outputs_null
+
+        exact_nf_matches = sum(1 for c in comparisons if c.target_date is None and c.predicted_date is None)
+        exact_date_matches = sum(1 for c in comparisons if (c.target_date is not None and c.predicted_date is not None and c.target_date == c.predicted_date))
+        exact_matches = exact_nf_matches + exact_date_matches
+
+        mismatches_pred_null_target_date = sum(1 for c in comparisons if (c.target_date is not None and c.predicted_date is None))
+        mismatches_pred_date_target_null = sum(1 for c in comparisons if (c.target_date is None and c.predicted_date is not None))
+        mismatched_dates = sum(1 for c in comparisons if (c.target_date is not None and c.predicted_date is not None and c.target_date != c.predicted_date))
+        mismatches_total = mismatches_pred_null_target_date + mismatches_pred_date_target_null + mismatched_dates
+
+        deltas_nonzero = [c.abs_days_delta for c in comparisons if c.abs_days_delta is not None and c.abs_days_delta > 0]
+        delta_buckets = self._bucketize_nonzero(deltas_nonzero)
 
         return Metrics(
             csv_rows=total_rows,
-            matched=len(comparisons),
-            unmatched=unmatched,
+            evaluated_rows=evaluated_rows,
+            targets_null=targets_null,
+            outputs_null=outputs_null,
+            targets_with_date=targets_with_date,
+            outputs_with_date=outputs_with_date,
             exact_matches=exact_matches,
             exact_nf_matches=exact_nf_matches,
             exact_date_matches=exact_date_matches,
-            wrong_phase_matches=wrong_phase_matches,
-            target_has_date=target_has_date,
-            predicted_missing_when_target_present=predicted_missing_when_target_present,
-            pairs_with_both_dates=n,
-            buckets=(self._bucketize(deltas) if n else {
-                '== 0 days': 0,
-                '<= 1 day': 0,
-                '<= 3 days': 0,
-                '<= 7 days': 0,
-                '<= 30 days': 0,
-                '<= 90 days': 0,
-                '> 90 days': 0,
-            }),
+            mismatches_total=mismatches_total,
+            mismatched_dates=mismatched_dates,
+            mismatches_pred_null_target_date=mismatches_pred_null_target_date,
+            mismatches_pred_date_target_null=mismatches_pred_date_target_null,
+            delta_buckets=delta_buckets,
         )
 
     @staticmethod
@@ -249,46 +258,54 @@ class LifecycleEvaluator:
     def _pct(a: int, b: int) -> float:
         return (100.0 * a / b) if b else 0.0
 
-    def _print_report(self, output_file_arg: str, metrics: Metrics) -> None:
-        print('\nEvaluation run')
-        print('==============')
-        print(f"Evaluation CSV: {self.evaluation_csv_path}")
+    def _derive_batch_id(self, output_file_arg: str) -> str:
+        fname = os.path.basename(output_file_arg)
+        m = re.match(r'catalog_research_results_(\d{8})_(\d{6})\.json', fname)
+        if m:
+            return m.group(2)
+        return datetime.now().strftime('%Y%m%d_%H%M%S')
+
+    def _build_report_text(self, output_file_arg: str, m: Metrics) -> str:
+        lines: List[str] = []
+        lines.append('\nEvaluation run')
+        lines.append('==============')
+        lines.append(f"Evaluation CSV: {self.evaluation_csv_path}")
         out_disp = output_file_arg if os.path.isabs(output_file_arg) else os.path.join(self.outputs_dir, output_file_arg)
-        print(f"Outputs JSON  : {out_disp}")
-        print(f"Rows in CSV: {metrics.csv_rows}")
-
-        meta_rows = [
-            ("Components matched", f"{metrics.matched}"),
-            ("Components unmatched", f"{metrics.unmatched}"),
-            ("Total eval rows scanned", f"{metrics.csv_rows}"),
+        lines.append(f"Outputs JSON  : {out_disp}")
+        lines.append(f"Rows in CSV: {m.csv_rows}")
+        lines.append('')
+        overview_rows = [
+            ("Total components evaluated", f"{m.evaluated_rows}"),
+            ("Total reference NULL target dates", f"{m.targets_null}"),
+            ("Total outputs NULL dates", f"{m.outputs_null}"),
+            ("Total targets with date", f"{m.targets_with_date}"),
+            ("Total outputs with date", f"{m.outputs_with_date}"),
         ]
-        print()
-        print(self._format_table(meta_rows, ("Metric", "Count")))
-
-        exact_rows = [
-            ("Exact matches (overall)", f"{metrics.exact_matches} ({self._pct(metrics.exact_matches, metrics.matched):.1f}%)"),
-            ("  • NOT_FOUND aligned", f"{metrics.exact_nf_matches} ({self._pct(metrics.exact_nf_matches, metrics.matched):.1f}%)"),
-            ("  • Exact date matches", f"{metrics.exact_date_matches} ({self._pct(metrics.exact_date_matches, metrics.matched):.1f}%)"),
-            ("Wrong-phase matches", f"{metrics.wrong_phase_matches} ({self._pct(metrics.wrong_phase_matches, metrics.matched):.1f}%)"),
-            ("Target with date", f"{metrics.target_has_date}"),
-            ("Predicted missing when target has date", f"{metrics.predicted_missing_when_target_present}"),
+        lines.append(self._format_table(overview_rows, ("Metric", "Count")))
+        lines.append('')
+        phase_rows = [
+            ("Exact matches (overall)", f"{m.exact_matches} ({self._pct(m.exact_matches, m.evaluated_rows):.1f}%)"),
+            ("  • NOT_FOUND aligned", f"{m.exact_nf_matches} ({self._pct(m.exact_nf_matches, m.evaluated_rows):.1f}%)"),
+            ("  • Exact date matches", f"{m.exact_date_matches} ({self._pct(m.exact_date_matches, m.evaluated_rows):.1f}%)"),
+            ("Mismatches (overall)", f"{m.mismatches_total} ({self._pct(m.mismatches_total, m.evaluated_rows):.1f}%)"),
+            ("  • Mismatched dates", f"{m.mismatched_dates}"),
+            ("  • Mismatch: predicted NULL, target has date", f"{m.mismatches_pred_null_target_date}"),
+            ("  • Mismatch: predicted date present, target NULL", f"{m.mismatches_pred_date_target_null}"),
         ]
-        print()
-        print(self._format_table(exact_rows, ("Exact/Phase Metrics", "Value")))
+        lines.append(self._format_table(phase_rows, ("Phase Metrics", "Value")))
+        lines.append('')
+        bucket_rows = [(k, str(v)) for k, v in m.delta_buckets.items()]
+        lines.append(self._format_table(bucket_rows, ("Date Delta Buckets (non-exact)", "Count")))
+        return '\n'.join(lines)
 
-        if metrics.pairs_with_both_dates:
-            delta_rows = [
-                ("Pairs with both dates", f"{metrics.pairs_with_both_dates}"),
-            ]
-            print()
-            print(self._format_table(delta_rows, ("Partial-Match (Delta)", "Value")))
-
-            bucket_rows = [(k, str(v)) for k, v in metrics.buckets.items()]
-            print()
-            print(self._format_table(bucket_rows, ("Delta Bucket", "Count")))
-        else:
-            print()
-            print("No date pairs available for partial-match delta statistics.")
+    def _save_report(self, report_text: str, output_file_arg: str) -> str:
+        os.makedirs(EVAL_REPORTS_DIR, exist_ok=True)
+        batch_id = self._derive_batch_id(output_file_arg)
+        filename = f"evaluation_metrics_{batch_id}.txt"
+        path = os.path.join(EVAL_REPORTS_DIR, filename)
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(report_text)
+        return path
 
     # -------- main entry --------
 
@@ -296,19 +313,20 @@ class LifecycleEvaluator:
         outputs_map = self._load_outputs(output_file)
         eval_rows = self._load_eval_rows()
 
-        unmatched = 0
         comparisons: List[Comparison] = []
         for r in eval_rows:
             key = normalize_name(r.full_name)
             out_row = outputs_map.get(key)
             cmp_res = self._compare_row(r, out_row)
             if cmp_res is None:
-                unmatched += 1
                 continue
             comparisons.append(cmp_res)
 
-        metrics = self._aggregate(comparisons, total_rows=len(eval_rows), unmatched=unmatched)
-        self._print_report(output_file, metrics)
+        metrics = self._aggregate(comparisons, total_rows=len(eval_rows))
+        report_text = self._build_report_text(output_file, metrics)
+        print(report_text)
+        saved_path = self._save_report(report_text, output_file)
+        print(f"\nSaved evaluation report to: {saved_path}")
 
 
 
