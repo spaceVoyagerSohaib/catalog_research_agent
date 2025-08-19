@@ -218,18 +218,30 @@ class Nodes:
         status_active = current_results.get('status_active', 'not_found')
         status_eos = current_results.get('status_eos', 'not_found')
 
-        active_threshold = 85.0
-        eos_threshold = 85.0
+        # Lowered thresholds to be more lenient but still quality-focused
+        active_threshold = 70.0
+        eos_threshold = 70.0
 
-        active_ok = (status_active == "verified" and conf_active >= active_threshold)
+        # Active date acceptance criteria (more strict for hallucination prevention)
+        active_ok = (
+            (status_active == "verified" and conf_active >= active_threshold) or
+            (status_active in {"not_found", "ambiguous"})  # Accept null/ambiguous results
+        )
+        
+        # EOS date acceptance criteria (preserve existing logic)
         eos_ok = (
-            (status_eos in {"verified", "derived"} and (conf_eos or 0.0) >= eos_threshold)
-            or status_eos == "not_applicable"
+            (status_eos in {"verified", "derived"} and (conf_eos or 0.0) >= eos_threshold) or
+            status_eos in {"not_applicable", "not_found", "ambiguous"}  # Accept null/ambiguous results
         )
 
-        logger.info(f"Decision: iterations={iterations}, active_ok={active_ok}, eos_ok={eos_ok}")
+        # Never accept questionable results regardless of iterations
+        # Only proceed if both fields are acceptable OR we've exhausted reasonable attempts
+        can_proceed = (active_ok and eos_ok)
+        max_iterations_reached = iterations >= 2
 
-        if (active_ok and eos_ok) or iterations >= 2:
+        logger.info(f"Decision: iterations={iterations}, active_ok={active_ok}, eos_ok={eos_ok}, can_proceed={can_proceed}")
+
+        if can_proceed or max_iterations_reached:
             return "output_generation"
         else:
             return "followup_research"
@@ -254,10 +266,26 @@ class Nodes:
         }
     
     def _create_successful_output(self, state: ResearchState, current_results: dict) -> dict:
+        # Apply skepticism filter to output - null out low-confidence results
+        active_date = current_results.get('active_date')
+        eos_date = current_results.get('eos_date')
+        conf_active = current_results.get('confidence_active', 0.0) or 0.0
+        conf_eos = current_results.get('confidence_eos', 0.0) or 0.0
+        status_active = current_results.get('status_active', 'not_found')
+        status_eos = current_results.get('status_eos', 'not_found')
+        
+        # Null out questionable active dates (below 50% confidence or ambiguous status)
+        if status_active == 'ambiguous' or conf_active < 50.0:
+            active_date = None
+            
+        # Null out questionable EOS dates (below 50% confidence or ambiguous status)
+        if status_eos == 'ambiguous' or conf_eos < 50.0:
+            eos_date = None
+        
         return {
             'component': state.get('component'),
-            'active_date': current_results.get('active_date'),
-            'eos_date': current_results.get('eos_date'),
+            'active_date': active_date,
+            'eos_date': eos_date,
             'confidence_score': state.get('confidence_score', 0.0),
             'sources': {
                 'active_date_sources': current_results.get('active_date_sources', []),

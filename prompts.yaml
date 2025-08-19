@@ -134,6 +134,15 @@ verification_active:
     - Alternative terms: Release date, GA date, General Availability, Launch date, RTM, Availability date
     - Fallback rule: If no credible release date exists, consider "Announcement" dates as "Active" date (but note this in verification)
 
+    CRITICAL SKEPTICISM REQUIREMENTS:
+    - BE HIGHLY SUSPICIOUS of single-source claims, especially for specific dates
+    - DOUBT information that seems too convenient or perfectly formatted
+    - REQUIRE multiple independent sources for high confidence (90%+)
+    - FLAG when only one source mentions a specific date
+    - LOWER confidence significantly when sources cannot be cross-referenced
+    - PREFER "not_found" over questionable dates with fabricated-looking sources
+    - NEVER assign high confidence (85%+) to unverifiable claims
+
     VERIFICATION TASKS:
     1. Extract ACTIVE date information from search results with context about what type of date it is
     2. Identify which specific URLs/sources provided the Active date information
@@ -143,25 +152,34 @@ verification_active:
        - News/blogs from reputable sources: 50-70 points
        - Forums/unofficial sources: 0-50 points
     4. Check for consistency across sources and flag any discrepancies in Active dates
-    5. Verify date clarity (release vs announcement, etc.)
-    6. Compute confidence (0-100) based on:
+    5. Cross-validate: Can this date be confirmed through multiple independent sources?
+    6. Verify date clarity (release vs announcement, etc.)
+    7. Compute confidence (0-100) based on:
        - Source credibility scores
        - Consistency between sources
+       - Number of independent confirmations
        - Completeness of information
        - Clarity of date definitions (release vs announcement, etc.)
 
+    CONFIDENCE CALIBRATION:
+    - 90-100%: Multiple official sources, perfectly consistent, widely documented
+    - 70-89%: Single official source OR multiple unofficial sources with consistency
+    - 50-69%: Limited sources, some uncertainty, but reasonable evidence
+    - 0-49%: Questionable sources, inconsistent information, or insufficient evidence
+
     STATUS DEFINITIONS:
-    - verified: explicit GA/release date from credible source(s)
-    - ambiguous: conflicting or unclear dates
-    - not_found: no suitable date found
+    - verified: explicit GA/release date from multiple credible sources OR single authoritative vendor source
+    - ambiguous: conflicting dates, questionable sources, or insufficient corroboration
+    - not_found: no suitable date found with sufficient evidence
     - not_applicable: use only if product has no sensible active concept (rare)
 
     DATE FORMAT:
-    - Provide active_date in ISO YYYY-MM-DD
+    - Provide active_date in ISO YYYY-MM-DD ONLY if confidence is reasonable (50%+)
     - If only month/year available, use the first of the month (e.g., 2022-11-01)
-    - Do not fabricate dates
+    - Return null for active_date if evidence is insufficient
+    - NEVER fabricate dates or sources
 
-    Critically analyze the search results and extract structured information with rigorous verification.
+    Apply extreme skepticism and prefer "not_found" over questionable information.
 
 verification_eos:
   analysis: |
@@ -175,6 +193,15 @@ verification_eos:
     - Key characteristics: No more regular updates, regular maintenance services not guaranteed, may receive passive/limited support, encourages users to upgrade
     - Alternative terms: End of support, EOS date, End of life, EOL date, End of maintenance, End of standard support
 
+    CRITICAL SKEPTICISM REQUIREMENTS:
+    - BE HIGHLY SUSPICIOUS of single-source EOS claims without corroboration
+    - DOUBT information that seems too convenient or perfectly formatted
+    - REQUIRE multiple independent sources for high confidence (90%+)
+    - FLAG when only one source mentions a specific EOS date
+    - LOWER confidence significantly when sources cannot be cross-referenced
+    - PREFER "not_found" or "not_applicable" over questionable dates
+    - NEVER assign high confidence (85%+) to unverifiable EOS claims
+
     VERIFICATION TASKS:
     1. Extract EOS date information from search results with context about support termination
     2. Identify which specific URLs/sources provided the EOS date information
@@ -184,29 +211,38 @@ verification_eos:
        - News/blogs from reputable sources: 50-70 points
        - Forums/unofficial sources: 0-50 points
     4. Check for consistency across sources and flag any discrepancies in EOS dates
-    5. Verify EOS derivation logic if using lifecycle policies
-    6. Compute confidence (0-100) based on:
+    5. Cross-validate: Can this EOS date be confirmed through multiple independent sources?
+    6. Verify EOS derivation logic if using lifecycle policies
+    7. Compute confidence (0-100) based on:
        - Source credibility scores
        - Consistency between sources
+       - Number of independent confirmations
        - Completeness of information
        - Clarity of EOS definitions (explicit vs derived)
 
+    CONFIDENCE CALIBRATION:
+    - 90-100%: Multiple official sources, perfectly consistent, widely documented
+    - 70-89%: Single official source OR multiple unofficial sources with consistency
+    - 50-69%: Limited sources, some uncertainty, but reasonable evidence
+    - 0-49%: Questionable sources, inconsistent information, or insufficient evidence
+
     EOS DETERMINATION:
-    - explicit date published by vendor
+    - explicit date published by vendor (requires strong evidence)
     - derived date from vendor lifecycle policy (e.g., "standard support = 4 years from GA")
-    - not_applicable for SaaS offerings without fixed EOS
+    - not_applicable for SaaS offerings without fixed EOS (prefer this for SaaS)
     - not_found if neither explicit nor policy derivation is possible
 
     STATUS DEFINITIONS:
-    - verified: explicit EOS date from credible source(s)
-    - derived: EOS derived from explicit policy rule and active date
-    - ambiguous: conflicting or unclear signals
-    - not_found: no EOS or policy derivation possible
-    - not_applicable: SaaS/continuous support without fixed EOS
+    - verified: explicit EOS date from multiple credible sources OR single authoritative vendor source
+    - derived: EOS derived from explicit policy rule and active date with clear documentation
+    - ambiguous: conflicting dates, questionable sources, or insufficient corroboration
+    - not_found: no EOS or policy derivation possible with sufficient evidence
+    - not_applicable: SaaS/continuous support without fixed EOS (common and acceptable)
 
     DATE FORMAT:
-    - Provide eos_date in ISO YYYY-MM-DD when explicit or derived
+    - Provide eos_date in ISO YYYY-MM-DD ONLY if confidence is reasonable (50%+)
     - If only month/year available, use the first of the month (e.g., 2024-05-01)
-    - Do not fabricate dates
+    - Return null for eos_date if evidence is insufficient
+    - NEVER fabricate dates or sources
 
-    Critically analyze the search results and extract structured information with rigorous verification.
+    Apply extreme skepticism and prefer "not_found" or "not_applicable" over questionable information.
