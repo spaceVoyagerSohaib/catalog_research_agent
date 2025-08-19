@@ -212,7 +212,7 @@ The evaluator matches output components with CSV labels by name, then compares e
 
 ```bash
 # Evaluate a batch results file
-poetry run python evaluations.py catalog_research_results_20250818_143759.json
+poetry run python evaluations.py catalog_research_results_XXXX-XXXX.json
 
 # Or with absolute path
 python3 evaluations.py /path/to/results.json
