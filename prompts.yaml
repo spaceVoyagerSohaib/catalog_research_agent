@@ -91,17 +91,20 @@ tools:
     Structured results:
     result 1:
       url: <URL>
-      tag: <tag> (e.g "policy", "active_date", "eos_date")
+      tag: <tag> (e.g "lifecycle_policy", "active_date", "eos_date")
       content_snippet: "<verbatim excerpt of at least 180 characters from the page that supports lifecycle info>"
     result 2:
       url: <URL>
-      tag: <tag> (e.g "policy", "active_date", "eos_date")
+      tag: <tag> (e.g "lifecycle_policy", "active_date", "eos_date")
       content_snippet: "<verbatim excerpt of at least 180 characters from the page that supports lifecycle info>"
     result 3:
       url: <URL>
-      tag: <tag> (e.g "policy", "active_date", "eos_date")
+      tag: <tag> (e.g "lifecycle_policy", "active_date", "eos_date")
       content_snippet: "<verbatim excerpt of at least 180 characters from the page that supports lifecycle info>"
-
+    result 4:
+      url: <URL>
+      tag: <tag> (e.g "lifecycle_policy", "active_date", "eos_date")
+      content_snippet: "<verbatim excerpt of at least 180 characters from the page that supports lifecycle info>"
     Findings:
       active_date: <YYYY-MM-DD or null>
       eos_date: <YYYY-MM-DD or null>
@@ -145,19 +148,19 @@ tools:
     Structured results:
     result 1:
       url: <URL>
-      tag: <tag> (e.g "policy", "active_date", "eos_date")
+      tag: <tag> (e.g "lifecycle_policy", "active_date", "eos_date")
       content_snippet: "<verbatim excerpt of at least 180 characters from the page that supports lifecycle info>"
     result 2:
       url: <URL>
-      tag: <tag> (e.g "policy", "active_date", "eos_date")
+      tag: <tag> (e.g "lifecycle_policy", "active_date", "eos_date")
       content_snippet: "<verbatim excerpt of at least 180 characters from the page that supports lifecycle info>"
     result 3:
       url: <URL>
-      tag: <tag> (e.g "policy", "active_date", "eos_date")
+      tag: <tag> (e.g "lifecycle_policy", "active_date", "eos_date")
       content_snippet: "<verbatim excerpt of at least 180 characters from the page that supports lifecycle info>"
     result 4:
       url: <URL>
-      tag: <tag> (e.g "policy", "active_date", "eos_date")
+      tag: <tag> (e.g "lifecycle_policy", "active_date", "eos_date")
       content_snippet: "<verbatim excerpt of at least 180 characters from the page that supports lifecycle info>"
 
     Findings:
