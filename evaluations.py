@@ -63,6 +63,18 @@ class Metrics:
     delta_buckets: Dict[str, int]
 
 
+@dataclass
+class ErrorDetail:
+    component: str
+    phase_type: str
+    target_date: Optional[date]
+    predicted_date: Optional[date]
+    abs_days_delta: Optional[int]
+    error_type: str  # 'large_delta', 'pred_null_target_date', 'pred_date_target_null'
+    target_date_str: str
+    predicted_date_str: str
+
+
 # -----------------------------
 # Utilities
 # -----------------------------
@@ -104,7 +116,9 @@ class LifecycleEvaluator:
     def _load_outputs(self, output_filename: str) -> Dict[str, OutputRow]:
         path = output_filename
         if not os.path.isabs(path):
-            path = os.path.join(self.outputs_dir, output_filename)
+            # Check if the filename already includes the outputs directory
+            if not output_filename.startswith('outputs/'):
+                path = os.path.join(self.outputs_dir, output_filename)
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         results: Dict[str, OutputRow] = {}
@@ -298,6 +312,151 @@ class LifecycleEvaluator:
         lines.append(self._format_table(bucket_rows, ("Date Delta Buckets (non-exact)", "Count")))
         return '\n'.join(lines)
 
+    def _analyze_errors(self, comparisons: List[Comparison]) -> List[ErrorDetail]:
+        """Analyze comparisons to identify detailed error information."""
+        errors: List[ErrorDetail] = []
+        
+        for c in comparisons:
+            error_detail = None
+            
+            # Large delta errors (>90 days)
+            if c.abs_days_delta is not None and c.abs_days_delta > 90:
+                error_detail = ErrorDetail(
+                    component=c.component,
+                    phase_type=c.phase_type,
+                    target_date=c.target_date,
+                    predicted_date=c.predicted_date,
+                    abs_days_delta=c.abs_days_delta,
+                    error_type='large_delta',
+                    target_date_str=c.target_date.strftime('%Y-%m-%d') if c.target_date else 'NULL',
+                    predicted_date_str=c.predicted_date.strftime('%Y-%m-%d') if c.predicted_date else 'NULL'
+                )
+            
+            # Predicted NULL but target has date
+            elif c.target_date is not None and c.predicted_date is None:
+                error_detail = ErrorDetail(
+                    component=c.component,
+                    phase_type=c.phase_type,
+                    target_date=c.target_date,
+                    predicted_date=c.predicted_date,
+                    abs_days_delta=None,
+                    error_type='pred_null_target_date',
+                    target_date_str=c.target_date.strftime('%Y-%m-%d'),
+                    predicted_date_str='NULL'
+                )
+            
+            # Predicted date but target is NULL
+            elif c.target_date is None and c.predicted_date is not None:
+                error_detail = ErrorDetail(
+                    component=c.component,
+                    phase_type=c.phase_type,
+                    target_date=c.target_date,
+                    predicted_date=c.predicted_date,
+                    abs_days_delta=None,
+                    error_type='pred_date_target_null',
+                    target_date_str='NULL',
+                    predicted_date_str=c.predicted_date.strftime('%Y-%m-%d')
+                )
+            
+            if error_detail:
+                errors.append(error_detail)
+        
+        return errors
+
+    def _build_error_report(self, errors: List[ErrorDetail]) -> str:
+        """Build detailed error report focusing on >90 days delta and major mismatches."""
+        lines: List[str] = []
+        
+        # Filter and categorize errors
+        large_delta_errors = [e for e in errors if e.error_type == 'large_delta']
+        pred_null_errors = [e for e in errors if e.error_type == 'pred_null_target_date']
+        pred_date_errors = [e for e in errors if e.error_type == 'pred_date_target_null']
+        
+        lines.append('\nDETAILED ERROR ANALYSIS')
+        lines.append('=' * 50)
+        lines.append(f"Total errors analyzed: {len(errors)}")
+        lines.append(f"  • Large delta errors (>90 days): {len(large_delta_errors)}")
+        lines.append(f"  • Predicted NULL, target has date: {len(pred_null_errors)}")
+        lines.append(f"  • Predicted date, target NULL: {len(pred_date_errors)}")
+        lines.append('')
+        
+        # Large delta errors (>90 days) - sorted by delta descending
+        if large_delta_errors:
+            lines.append('LARGE DELTA ERRORS (>90 days)')
+            lines.append('-' * 40)
+            large_delta_errors.sort(key=lambda x: x.abs_days_delta or 0, reverse=True)
+            
+            for error in large_delta_errors[:20]:  # Show top 20 worst
+                delta_str = f"{error.abs_days_delta} days" if error.abs_days_delta else "N/A"
+                lines.append(f"Component: {error.component}")
+                lines.append(f"  Phase: {error.phase_type}")
+                lines.append(f"  Target: {error.target_date_str}")
+                lines.append(f"  Predicted: {error.predicted_date_str}")
+                lines.append(f"  Delta: {delta_str}")
+                lines.append('')
+            
+            if len(large_delta_errors) > 20:
+                lines.append(f"... and {len(large_delta_errors) - 20} more large delta errors")
+                lines.append('')
+        
+        # Predicted NULL but target has date
+        if pred_null_errors:
+            lines.append('PREDICTED NULL, TARGET HAS DATE')
+            lines.append('-' * 40)
+            for error in pred_null_errors[:15]:  # Show top 15
+                lines.append(f"Component: {error.component}")
+                lines.append(f"  Phase: {error.phase_type}")
+                lines.append(f"  Target: {error.target_date_str}")
+                lines.append(f"  Predicted: NULL")
+                lines.append('')
+            
+            if len(pred_null_errors) > 15:
+                lines.append(f"... and {len(pred_null_errors) - 15} more NULL prediction errors")
+                lines.append('')
+        
+        # Predicted date but target is NULL
+        if pred_date_errors:
+            lines.append('PREDICTED DATE, TARGET NULL')
+            lines.append('-' * 40)
+            for error in pred_date_errors[:10]:  # Show top 10
+                lines.append(f"Component: {error.component}")
+                lines.append(f"  Phase: {error.phase_type}")
+                lines.append(f"  Target: NULL")
+                lines.append(f"  Predicted: {error.predicted_date_str}")
+                lines.append('')
+            
+            if len(pred_date_errors) > 10:
+                lines.append(f"... and {len(pred_date_errors) - 10} more false positive errors")
+                lines.append('')
+        
+        return '\n'.join(lines)
+
+    def _export_errors_to_csv(self, errors: List[ErrorDetail], output_file_arg: str) -> str:
+        """Export detailed errors to CSV for manual analysis."""
+        os.makedirs(EVAL_REPORTS_DIR, exist_ok=True)
+        batch_id = self._derive_batch_id(output_file_arg)
+        filename = f"error_analysis_{batch_id}.csv"
+        path = os.path.join(EVAL_REPORTS_DIR, filename)
+        
+        with open(path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow([
+                'Component', 'Phase_Type', 'Target_Date', 'Predicted_Date', 
+                'Days_Delta', 'Error_Type'
+            ])
+            
+            for error in errors:
+                writer.writerow([
+                    error.component,
+                    error.phase_type,
+                    error.target_date_str,
+                    error.predicted_date_str,
+                    error.abs_days_delta if error.abs_days_delta is not None else '',
+                    error.error_type
+                ])
+        
+        return path
+
     def _save_report(self, report_text: str, output_file_arg: str) -> str:
         os.makedirs(EVAL_REPORTS_DIR, exist_ok=True)
         batch_id = self._derive_batch_id(output_file_arg)
@@ -325,6 +484,17 @@ class LifecycleEvaluator:
         metrics = self._aggregate(comparisons, total_rows=len(eval_rows))
         report_text = self._build_report_text(output_file, metrics)
         print(report_text)
+        
+        # Generate detailed error analysis
+        errors = self._analyze_errors(comparisons)
+        if errors:
+            error_report = self._build_error_report(errors)
+            print(error_report)
+            
+            # Export errors to CSV for manual analysis
+            csv_path = self._export_errors_to_csv(errors, output_file)
+            print(f"\nExported detailed error analysis to: {csv_path}")
+        
         saved_path = self._save_report(report_text, output_file)
         print(f"\nSaved evaluation report to: {saved_path}")
 
@@ -340,4 +510,4 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    main() 
+    main()
